@@ -1,0 +1,13 @@
+03.08.2025  
+Editor Release 2.0.3
+
+Changelogs:
+- Pre-defined templates have been added to make reporting easier and more structured.
+- Separate params table from the advance tab in the NPC editor.
+- Some unknown fields have been replaced with more descriptive, meaningful labels.  
+- Field groups in editors have also been reorganized to improve clarity and usability. 
+- For downloads and further information, visit the Tools section.
+
+Note: To create an issue or feature request, a GitLab account is required.
+Issues: https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Bug_Report
+Feature request: https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Feature_Request
