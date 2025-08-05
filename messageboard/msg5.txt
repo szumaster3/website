@@ -5,10 +5,7 @@ Changelogs:
 - Fix multiple opening panel on plugin reload;
 - NPC load dynamically from cache instead of hardcoded values;
 
-<br>
-
-<p>Compiled code</p>
+Compiled code
 <a href="../../data/upload/ModPanelPlugin.zip">Proceed to download </a>
-
-<p>Source code</p>
+Source code
 <a href="../../data/upload/ModPanelPlugin-source.zip">Proceed to download </a></div>
