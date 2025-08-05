@@ -8,13 +8,9 @@ Changelog:
 - Added cache location logging
 
 settings.json Configuration:
-<pre>
-{
-  "cacheLocation": "C:\\Users\\Unknown\\Cache\\", // Path to cache directory
-  "originalTheme": false, // Reserved
-  "enableLogging": false // Enables logging to .txt
-}
-</pre>
+"cacheLocation": "C:\\Users\\Unknown\\Cache\\", // Path to cache directory
+"originalTheme": false, // Reserved
+"enableLogging": false // Enables logging to .txt
 
 <em>Note:</em> To create an issue or feature request, you must have a GitLab account. 
 Report a bug: <a href="https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Bug_Report" target="_blank"> Submit an issue </a>
