@@ -167,11 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     box.appendChild(ul);
                 }
                 const li = document.createElement('li');
-                li.textContent = line.substring(1).trim();
+                li.innerHTML = line.substring(1).trim();
                 ul.appendChild(li);
             } else {
                 const p = document.createElement('p');
-                p.textContent = line;
+                p.innerHTML = line;
                 box.appendChild(p);
             }
         });
