@@ -3,21 +3,21 @@ Editor Version: 2.0.6
 
 Changelog: 
 - Add sprite tool (raw version)
+
 <br>
 
 Features:
-- Zoom & Mouse Functionality, 
-- Intelligent Buffer Size Management (dynamic buffer sizing during encoding)
-- Image Auto-Centering
-- Sprite Data Editing (editing sprite properties and frames)
-- Export Buttons (sprites and frames)
-- Palette Reduction / Color Quantization / Sprite Cleanup (palette optimization and sprite cleanup)
-- Search/Filter Sprites
-- Frame Navigation
-- Metadata Generation and Export
-- Validation & Error Handling (during load and save)
-- High-Fidelity Data Reading (lossless, highest quality sprite decoding)
+- Zoom & mouse functionality, 
+- Intelligent buffer size management
+- Image auto-centering
+- Sprite data editing
+- Export buttons
+- Palette reduction / Color quantization / Sprite cleanup
+- Metadata export
+- Validation & error Handling (during load and save)
+- High-fidelity fata teading (lossless, highest quality sprite decoding)
 
-Note: To create an issue or feature request, a GitLab account is required.
-Issues: https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Bug_Report
-Feature request: https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Feature_Request
+
+<em>Note:</em> To create an issue or feature request, you must have a GitLab account. 
+Report a bug: <a href="https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Bug_Report" target="_blank"> Submit an issue </a>
+Request a feature: <a href="https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Feature_Request" target="_blank"> Submit a feature request </a>
