@@ -126,14 +126,12 @@
         }
 
         .pagination-fixed span#pageNumbers button.active {
-            background-color: #5C4033;
+            background-color: #685B45;
             color: white;
-            font-weight: bold;
         }
 		.pagination #pageNumbers button.active {
-			background-color: #5C4033;
+			background-color: #685B45;
 			color: white;
-			font-weight: bold;
 		}
     </style>
 </head>
@@ -230,7 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = document.createElement('button');
             btn.textContent = i;
             btn.classList.toggle('active', i === currentPage);
-            btn.addEventListener('click', () => renderMessagesPage(i));
+            btn.addEventListener('click', event => {
+			event.preventDefault();
+			renderMessagesPage(i);
+		});
             container.appendChild(btn);
         }
     }
