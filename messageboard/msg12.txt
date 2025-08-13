@@ -1,0 +1,10 @@
+13.08.2025
+Editor Version: 2.0.7a
+
+Changelog:
+- Hotfix: sprite decode & write now work properly
+
+
+<em>Note:</em> To create an issue or feature request, you must have a GitLab account. 
+Report a bug: <a href="https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Bug_Report" target="_blank"> Submit an issue </a>
+Request a feature: <a href="https://gitlab.com/rspsdev/editor-issues/-/issues/new?description_template=Feature_Request" target="_blank"> Submit a feature request </a>
