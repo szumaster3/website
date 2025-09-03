@@ -1,0 +1,5 @@
+24.08.2025
+Editor Version: 2.1.2
+
+Changelog:
+- Fix searchfield
