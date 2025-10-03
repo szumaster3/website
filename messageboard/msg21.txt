@@ -1,0 +1,7 @@
+03.10.2025
+Editor Version: 1.0.3
+
+Changelog:
+- Unify tabs into basic and advanced sections
+- Streamline checkbox panel layout with FlowLayout and BorderLayout
+- Update usage examples for multiple checkbox groups
