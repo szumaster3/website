@@ -1,0 +1,11 @@
+05.08.2025  
+Support panel update 1.0.1
+
+Changelogs:
+- Fix multiple opening panel on plugin reload;
+- NPC load dynamically from cache instead of hardcoded values;
+
+Compiled code
+<a href="../../data/upload/ModPanelPlugin.zip">Proceed to download </a>
+Source code
+<a href="../../data/upload/ModPanelPlugin-source.zip">Proceed to download </a></div>

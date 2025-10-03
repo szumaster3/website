@@ -1,0 +1,10 @@
+30.09.2025
+Editor Version: 1.0.1
+
+Changelog:
+- Enhanced display of colors and textures changes ([13506,54340], [13501,54340])
+- Add missing fields to Object Editor and introduced Interface Editor
+- Add kotlin-reflect dependency
+- Improved File Manager with popup menus and reduced code complexity (from 1200 to 180 lines)
+- Organized packages into intuitive categories
+- Minor bug fixes and overall code cleanup

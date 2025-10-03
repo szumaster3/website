@@ -1,0 +1,5 @@
+24.08.2025
+Editor Version: 2.1.1
+
+Changelog:
+- Add additional functions and enhance functionality in the file manager

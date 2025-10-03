@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+  <head>
+    <title>Emulation - RS2 Blog</title>
+    <link rel="manifest" href="site.webmanifest">
+    <script src="../../data/js/header.js"></script>
+    <script src="../../data/js/responsive.js"></script>
+    <link href="../../data/css/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../data/css/default.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="title">
+          <h1>RS2-Commands</h1>
+        </div>
+      </div>
+      <div class="navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../content.html">Content</a>
+        <div class="clearer">
+          <span></span>
+        </div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            th,
+            td {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+
+            th {
+              background-color: #f2f2f2;
+            }
+          </style>
+          <h1>Commands Table</h1>
+          <hr>
+          <p>
+          <p> Below is a list of in-game commands. All commands are available in administrator mode (configuration setting in <b>default.conf</b> : <b>noauth_default_admin = true</b>). </p>
+          <p> For more information, please refer to the source: <br>
+            <a href="https://gitlab.com/rs2-emu/530-server/-/tree/master/Emulator/src/main/core/game/system/command?ref_type=heads" target="_blank"> https://gitlab.com/../Emulator/src/main/core/game/system/command </a>
+          </p>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>::buyhouse</td>
+                <td>Buy house + grants 10M cash for tests.</td>
+              </tr>
+              <tr>
+                <td>::mtahat</td>
+                <td>MTA points manager.</td>
+              </tr>
+              <tr>
+                <td>::balloon</td>
+                <td>Enables hot air balloon transportation method.</td>
+              </tr>
+              <tr>
+                <td>::dyeskit</td>
+                <td>Provides a set of dyes.</td>
+              </tr>
+              <tr>
+                <td>::talismankit</td>
+                <td>Provides a set of talisman items.</td>
+              </tr>
+              <tr>
+                <td>::farmkit</td>
+                <td>Provides a kit of various farming equipment.</td>
+              </tr>
+              <tr>
+                <td>::spinningkit</td>
+                <td>Provides all ingredients for spinning wheel, with product information.</td>
+              </tr>
+              <tr>
+                <td>::barkit</td>
+                <td>Provides all bars and hammer and teleport to anvil.</td>
+              </tr>
+              <tr>
+                <td>::orekit</td>
+                <td>Provides all ores to the bank and teleports to the furnace.</td>
+              </tr>
+              <tr>
+                <td>::summoningkit</td>
+                <td>Provides all pouches to the bank and teleports to the obelisk.</td>
+              </tr>
+              <tr>
+                <td>::runekit</td>
+                <td>Access rune kit.</td>
+              </tr>
+              <tr>
+                <td>::teakit</td>
+                <td>Stuff to making cup of tea. (POH)</td>
+              </tr>
+              <tr>
+                <td>::reloadplugins</td>
+                <td>Reloads the current active plugins.</td>
+              </tr>
+              <tr>
+                <td>::displaycase</td>
+                <td>Enables all display cases at Varrock Museum.</td>
+              </tr>
+              <tr>
+                <td>::dumpidk</td>
+                <td>Dumps identity kits data to a .csv file.</td>
+              </tr>
+              <tr>
+                <td>::dumpitems</td>
+                <td>Dumps item definitions data to a .json file.</td>
+              </tr>
+              <tr>
+                <td>::dumpcs2</td>
+                <td>Dumps CS2 mapping data to a .csv file.</td>
+              </tr>
+              <tr>
+                <td>::dumpstructs</td>
+                <td>Dumps structs data to a .csv file.</td>
+              </tr>
+              <tr>
+                <td>::dumpdatamaps</td>
+                <td>Dumps structs data to a .csv file.</td>
+              </tr>
+              <tr>
+                <td>::dumpnpcs</td>
+                <td>Dumps NPC definitions data to a .json file.</td>
+              </tr>
+              <tr>
+                <td>::dumpcomponents</td>
+                <td>Dumps component definitions data to a .json file.</td>
+              </tr>
+              <tr>
+                <td>::xface</td>
+                <td>Allows you to exit the currently opened interface.</td>
+              </tr>
+              <tr>
+                <td>::npcsearch</td>
+                <td>Allows to search NPCs that match the name either in main or children.</td>
+              </tr>
+              <tr>
+                <td>::playsong</td>
+                <td>Allows you to play the soundtrack.</td>
+              </tr>
+              <tr>
+                <td>::loc</td>
+                <td>Shows information about your current location.</td>
+              </tr>
+              <tr>
+                <td>::rules</td>
+                <td>Showing live server rules scroll.</td>
+              </tr>
+              <tr>
+                <td>::reply</td>
+                <td>Opens a reply prompt to your last DM, same as pressing TAB.</td>
+              </tr>
+              <tr>
+                <td>::muteglobal</td>
+                <td>Toggle global chat on or off.</td>
+              </tr>
+              <tr>
+                <td>::geprivacy</td>
+                <td>Hides your nickname when selling at the Grand Exchange.</td>
+              </tr>
+              <tr>
+                <td>::resetpassword</td>
+                <td>Change password command, first write current password then new.</td>
+              </tr>
+              <tr>
+                <td>::quests</td>
+                <td>Shows the list of implemented quests.</td>
+              </tr>
+              <tr>
+                <td>::calc_accuracy</td>
+                <td>Calculates and shows your current chance to hit a given NPC.</td>
+              </tr>
+              <tr>
+                <td>::calcmaxhit</td>
+                <td>Calculates and shows you your current max hit.</td>
+              </tr>
+              <tr>
+                <td>::region</td>
+                <td>Shows region ID.</td>
+              </tr>
+              <tr>
+                <td>::shop</td>
+                <td>Open credits shop.</td>
+              </tr>
+              <tr>
+                <td>::ge</td>
+                <td>Various commands for viewing Grand exchange offers.</td>
+              </tr>
+              <tr>
+                <td>::debug</td>
+                <td>Toggle debug mode.</td>
+              </tr>
+              <tr>
+                <td>::playjingle</td>
+                <td>Last chance to get out of bronze.</td>
+              </tr>
+              <tr>
+                <td>::1hit</td>
+                <td>1hit command.</td>
+              </tr>
+              <tr>
+                <td>::addcredits</td>
+                <td>Add credits.</td>
+              </tr>
+              <tr>
+                <td>::addxp</td>
+                <td>Add experience points.</td>
+              </tr>
+              <tr>
+                <td>::allmusic</td>
+                <td>Unlock all music.</td>
+              </tr>
+              <tr>
+                <td>::allowaggro</td>
+                <td>Allow aggro from NPCs.</td>
+              </tr>
+              <tr>
+                <td>::allquest</td>
+                <td>Unlock all quests.</td>
+              </tr>
+              <tr>
+                <td>::anim</td>
+                <td>Use an animation.</td>
+              </tr>
+              <tr>
+                <td>::announce</td>
+                <td>Broadcast a message.</td>
+              </tr>
+              <tr>
+                <td>::appearance</td>
+                <td>Change appearance.</td>
+              </tr>
+              <tr>
+                <td>::audio</td>
+                <td>Control audio settings.</td>
+              </tr>
+              <tr>
+                <td>::ban</td>
+                <td>Ban a player.</td>
+              </tr>
+              <tr>
+                <td>::bank</td>
+                <td>Open the bank.</td>
+              </tr>
+              <tr>
+                <td>::barrage</td>
+                <td>Cast a barrage spell.</td>
+              </tr>
+              <tr>
+                <td>::botinfo bot_name</td>
+                <td>Get information about a bot.</td>
+              </tr>
+              <tr>
+                <td>::bury</td>
+                <td>Bury an item.</td>
+              </tr>
+              <tr>
+                <td>::cancelupdate</td>
+                <td>Cancel the current update.</td>
+              </tr>
+              <tr>
+                <td>::charge</td>
+                <td>Charge an item or spell.</td>
+              </tr>
+              <tr>
+                <td>::cleardiary</td>
+                <td>Clear the diary.</td>
+              </tr>
+              <tr>
+                <td>::clearjob</td>
+                <td>Clear job/task.</td>
+              </tr>
+              <tr>
+                <td>::commands</td>
+                <td>List all available commands.</td>
+              </tr>
+              <tr>
+                <td>::completediaries</td>
+                <td>Complete all diaries.</td>
+              </tr>
+              <tr>
+                <td>::coords</td>
+                <td>Show your current coordinates.</td>
+              </tr>
+              <tr>
+                <td>::cs2</td>
+                <td>Perform a CS2 script.</td>
+              </tr>
+              <tr>
+                <td>::csvmodcr</td>
+                <td>Perform CSV modification.</td>
+              </tr>
+              <tr>
+                <td>::datamap</td>
+                <td>Display the data map.</td>
+              </tr>
+              <tr>
+                <td>::define_varbit</td>
+                <td>Define a varbit.</td>
+              </tr>
+              <tr>
+                <td>::drawchunks</td>
+                <td>Draw chunks in the world.</td>
+              </tr>
+              <tr>
+                <td>::drawclipping</td>
+                <td>Draw clipping data.</td>
+              </tr>
+              <tr>
+                <td>::drawintersect</td>
+                <td>Draw intersection points.</td>
+              </tr>
+              <tr>
+                <td>::drawregions</td>
+                <td>Draw regions in the game.</td>
+              </tr>
+              <tr>
+                <td>::drawroute</td>
+                <td>Draw the route of movement.</td>
+              </tr>
+              <tr>
+                <td>::dumpappearance</td>
+                <td>Dump the current appearance data.</td>
+              </tr>
+              <tr>
+                <td>::dumpdatamaps</td>
+                <td>Dump the data maps.</td>
+              </tr>
+              <tr>
+                <td>::dumpstructs</td>
+                <td>Dump the game structures.</td>
+              </tr>
+              <tr>
+                <td>::empty</td>
+                <td>Empty an inventory or container.</td>
+              </tr>
+              <tr>
+                <td>::emptybank</td>
+                <td>Empty the bank.</td>
+              </tr>
+              <tr>
+                <td>::expression</td>
+                <td>Control the player expression.</td>
+              </tr>
+              <tr>
+                <td>::findobj</td>
+                <td>Find an object.</td>
+              </tr>
+              <tr>
+                <td>::finishbins</td>
+                <td>Finish the bins task.</td>
+              </tr>
+              <tr>
+                <td>::finishtask</td>
+                <td>Finish the current task.</td>
+              </tr>
+              <tr>
+                <td>::fmanim</td>
+                <td>Perform firemaking animation.</td>
+              </tr>
+              <tr>
+                <td>::fmend</td>
+                <td>End firemaking.</td>
+              </tr>
+              <tr>
+                <td>::fmspeed</td>
+                <td>Change firemaking speed.</td>
+              </tr>
+              <tr>
+                <td>::fmspeedend</td>
+                <td>End firemaking speed boost.</td>
+              </tr>
+              <tr>
+                <td>::fmstart</td>
+                <td>Start firemaking.</td>
+              </tr>
+              <tr>
+                <td>::getattribute</td>
+                <td>Get an attribute of an object.</td>
+              </tr>
+              <tr>
+                <td>::getnpcparent</td>
+                <td>Get the parent of an NPC.</td>
+              </tr>
+              <tr>
+                <td>::getobjectvarp</td>
+                <td>Get the varp of an object.</td>
+              </tr>
+              <tr>
+                <td>::getvarbit</td>
+                <td>Get the varbit value.</td>
+              </tr>
+              <tr>
+                <td>::giveitem</td>
+                <td>Give an item to yourself.</td>
+              </tr>
+              <tr>
+                <td>::globalaudio</td>
+                <td>Control global audio settings.</td>
+              </tr>
+              <tr>
+                <td>::god</td>
+                <td>Toggle god mode.</td>
+              </tr>
+              <tr>
+                <td>::grow</td>
+                <td>Grow a plant or object.</td>
+              </tr>
+              <tr>
+                <td>::home</td>
+                <td>Teleport to home.</td>
+              </tr>
+              <tr>
+                <td>::iface</td>
+                <td>Interface management command.</td>
+              </tr>
+              <tr>
+                <td>::iftriggers</td>
+                <td>Manage interface triggers.</td>
+              </tr>
+              <tr>
+                <td>::infinitespecial</td>
+                <td>Activate infinite special.</td>
+              </tr>
+              <tr>
+                <td>::interface</td>
+                <td>Show interface screen.</td>
+              </tr>
+              <tr>
+                <td>::invis</td>
+                <td>Become invisible.</td>
+              </tr>
+              <tr>
+                <td>::ipban</td>
+                <td>Ban a player by IP.</td>
+              </tr>
+              <tr>
+                <td>::item</td>
+                <td>Add or manage items.</td>
+              </tr>
+              <tr>
+                <td>::itemsearch</td>
+                <td>Search for an item.</td>
+              </tr>
+              <tr>
+                <td>::jail</td>
+                <td>Jail a player.</td>
+              </tr>
+              <tr>
+                <td>::kick</td>
+                <td>Kick a player from the game.</td>
+              </tr>
+              <tr>
+                <td>::killme</td>
+                <td>Kill your character.</td>
+              </tr>
+              <tr>
+                <td>::listifmodels</td>
+                <td>List interface models.</td>
+              </tr>
+              <tr>
+                <td>::listiftext</td>
+                <td>List interface texts.</td>
+              </tr>
+              <tr>
+                <td>::log</td>
+                <td>Display log information.</td>
+              </tr>
+              <tr>
+                <td>::loopanim</td>
+                <td>Start looping an animation.</td>
+              </tr>
+              <tr>
+                <td>::makeover</td>
+                <td>Perform a makeover.</td>
+              </tr>
+              <tr>
+                <td>::mapredo</td>
+                <td>Redo the map.</td>
+              </tr>
+              <tr>
+                <td>::max</td>
+                <td>Set the max level for stats.</td>
+              </tr>
+              <tr>
+                <td>::modcr</td>
+                <td>Modify a character.</td>
+              </tr>
+              <tr>
+                <td>::model</td>
+                <td>Display or change models.</td>
+              </tr>
+              <tr>
+                <td>::movcam</td>
+                <td>Move the camera.</td>
+              </tr>
+              <tr>
+                <td>::mrboneswildride</td>
+                <td>Start the Mr. Bones Wild Ride.</td>
+              </tr>
+              <tr>
+                <td>::mute</td>
+                <td>Mute a player.</td>
+              </tr>
+              <tr>
+                <td>::noobme</td>
+                <td>Make your character a noob.</td>
+              </tr>
+              <tr>
+                <td>::npc</td>
+                <td>Spawn an NPC.</td>
+              </tr>
+              <tr>
+                <td>::npcanim</td>
+                <td>Set an NPC animation.</td>
+              </tr>
+              <tr>
+                <td>::object</td>
+                <td>Interact with an object.</td>
+              </tr>
+              <tr>
+                <td>::objectgrid</td>
+                <td>Show the object grid.</td>
+              </tr>
+              <tr>
+                <td>::overlay</td>
+                <td>Show overlay information.</td>
+              </tr>
+              <tr>
+                <td>::players</td>
+                <td>List current players online.</td>
+              </tr>
+              <tr>
+                <td>::playid</td>
+                <td>Play an ID.</td>
+              </tr>
+              <tr>
+                <td>::pnpc</td>
+                <td>Set a player NPC.</td>
+              </tr>
+              <tr>
+                <td>::poscam</td>
+                <td>Position the camera.</td>
+              </tr>
+              <tr>
+                <td>::potato</td>
+                <td>Interact with potatoes or related item.</td>
+              </tr>
+              <tr>
+                <td>::quest</td>
+                <td>Start a quest.</td>
+              </tr>
+              <tr>
+                <td>::quests</td>
+                <td>List all quests.</td>
+              </tr>
+              <tr>
+                <td>::ranim</td>
+                <td>Run an animation.</td>
+              </tr>
+              <tr>
+                <td>::region</td>
+                <td>Display region information.</td>
+              </tr>
+              <tr>
+                <td>::removeitem</td>
+                <td>Remove an item from your inventory.</td>
+              </tr>
+              <tr>
+                <td>::removeitemall</td>
+                <td>Remove all items from your inventory.</td>
+              </tr>
+              <tr>
+                <td>::resetanim</td>
+                <td>Reset animation state.</td>
+              </tr>
+              <tr>
+                <td>::resetbins</td>
+                <td>Reset bins task.</td>
+              </tr>
+              <tr>
+                <td>::resetcam</td>
+                <td>Reset camera state.</td>
+              </tr>
+              <tr>
+                <td>::rolldrops</td>
+                <td>Roll for item drops. Usage: ::rolldrops npcid amount</td>
+              </tr>
+              <tr>
+                <td>::rolltrawlerloot</td>
+                <td>Roll for trawler loot.</td>
+              </tr>
+              <tr>
+                <td>::rotcam</td>
+                <td>Rotate camera.</td>
+              </tr>
+              <tr>
+                <td>::rules</td>
+                <td>Display server rules.</td>
+              </tr>
+              <tr>
+                <td>::sconfigrange</td>
+                <td>Configure range settings.</td>
+              </tr>
+              <tr>
+                <td>::sconfigrange0</td>
+                <td>Configure range settings to zero.</td>
+              </tr>
+              <tr>
+                <td>::script</td>
+                <td>Run a script.</td>
+              </tr>
+              <tr>
+                <td>::scripts</td>
+                <td>List available scripts.</td>
+              </tr>
+              <tr>
+                <td>::setattribute</td>
+                <td>Set an attribute of an object.</td>
+              </tr>
+              <tr>
+                <td>::setlevel</td>
+                <td>Set a player's level.</td>
+              </tr>
+              <tr>
+                <td>::setpasswordother</td>
+                <td>Set another player's password.</td>
+              </tr>
+              <tr>
+                <td>::setplaqueread</td>
+                <td>Set the plaque read status.</td>
+              </tr>
+              <tr>
+                <td>::setqueststage</td>
+                <td>Set the quest stage.</td>
+              </tr>
+              <tr>
+                <td>::setslayerpoints</td>
+                <td>Set slayer points.</td>
+              </tr>
+              <tr>
+                <td>::setslayertask</td>
+                <td>Set a slayer task.</td>
+              </tr>
+              <tr>
+                <td>::setvarbit</td>
+                <td>Set the varbit value.</td>
+              </tr>
+              <tr>
+                <td>::setvarc</td>
+                <td>Set the varc value.</td>
+              </tr>
+              <tr>
+                <td>::setvarp</td>
+                <td>Set the varp value.</td>
+              </tr>
+              <tr>
+                <td>::shakecam</td>
+                <td>Shake the camera.</td>
+              </tr>
+              <tr>
+                <td>::skip</td>
+                <td>Skip the current task.</td>
+              </tr>
+              <tr>
+                <td>::spellbook</td>
+                <td>Change spellbook.</td>
+              </tr>
+              <tr>
+                <td>::stats</td>
+                <td>Show stats information.</td>
+              </tr>
+              <tr>
+                <td>::stopscript</td>
+                <td>Stop a running script.</td>
+              </tr>
+              <tr>
+                <td>::struct</td>
+                <td>Show game structures.</td>
+              </tr>
+              <tr>
+                <td>::tele</td>
+                <td>Teleport to a location.</td>
+              </tr>
+              <tr>
+                <td>::teleobj</td>
+                <td>Teleport to an object.</td>
+              </tr>
+              <tr>
+                <td>::teleto</td>
+                <td>Teleport to a player.</td>
+              </tr>
+              <tr>
+                <td>::teletome</td>
+                <td>Teleport to me.</td>
+              </tr>
+              <tr>
+                <td>::testfm</td>
+                <td>Test firemaking.</td>
+              </tr>
+              <tr>
+                <td>::testpacket</td>
+                <td>Test packet functionality.</td>
+              </tr>
+              <tr>
+                <td>::timers</td>
+                <td>Display timers.</td>
+              </tr>
+              <tr>
+                <td>::to</td>
+                <td>Send a message to a player.</td>
+              </tr>
+              <tr>
+                <td>::update</td>
+                <td>Update a setting.</td>
+              </tr>
+              <tr>
+                <td>::varbits</td>
+                <td>Display varbit information.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sidenav">
+          <h1>Informations</h1>
+          <ul>
+            <li>
+              <a href="screenshots.html">Screenshots</a>
+            </li>
+            <li>
+              <a href="../../index.html">Home</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Download Singleplayer</a>
+            </li>
+          </ul>
+          <h1>Plugins</h1>
+          <ul>
+            <li>
+              <a href="plugin.html">Support Panel</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
+          <h1>Tools</h1>
+          <ul>
+            <li>
+              <a href="../../content/menu/editor.html">Cache Editor</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
+          <h1>Open-Source</h1>
+          <ul>
+            <li><a href="https://darkan.org/">2012 Darkan</a></li>
+            <li><a href="https://github.com/GregHib/void">2011 Void</a></li>
+            <li><a href="https://2009scape.org/">2009 Scape</a></li>
+            <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
+            <li>                    <a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
+          </ul>
+        </div>
+        <div class="clearer">
+          <span></span>
+        </div>
+      </div>
+      <div class="footer">&copy; 2006-2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>. </div>
+      <script src="../../data/js/lightbox-plus-jquery.js"></script>
+      </div>
+  </body>
+</html>

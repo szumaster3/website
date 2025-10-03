@@ -1,0 +1,8 @@
+29.07.2025
+Editor Update 2.0.0
+
+The Cache Editor is now available in alpha. 
+Some features remain under development.
+Feedback via GitLab Issues.
+
+More information and downloads can be found under the Tools section.

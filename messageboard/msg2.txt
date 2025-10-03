@@ -1,0 +1,10 @@
+01.08.2025
+Editor Update 2.0.2
+
+Changelogs:
+- Fixed application freeze when deleting text from the search field.
+- Added a new button to export object defs.
+- Downloads are now served directly from the web (repo), eliminating dependencies on external URLs.
+
+For bug reports and feature requests, please visit GitLab Issues.
+Full details and downloads are available under the Tools section.

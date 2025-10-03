@@ -1,0 +1,6 @@
+15.08.2025
+Editor Version: 2.0.8
+
+Changelog:
+- Correct display unsigned short values
+- Final fix for search freeze

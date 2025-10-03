@@ -1,0 +1,15 @@
+03.10.2025
+Editor Version: 1.0.2
+
+Changelog:
+- Removed interface editor
+- Refactored ModelExporter to use BoxLayout instead of GroupLayout
+- Improved file management in FileManager: fixed JTree details, popup menu, export/import actions, and log area
+- Refactored ModelPacker layout (BoxLayout + FlowLayout) to avoid GroupLayout exceptions
+- Added support for packing .dat and .gz model files
+- Logs now auto-scroll and can be saved/opened as .txt
+- Optimized ShadowJar build to reduce JAR size and fix dependency issues
+- Preserved tree expansion and selection after any action in FileManager
+- Format options in GUI as [Option1,Option2,...]
+- Fixed parse color mappings
+- Fix Basic tab layouts

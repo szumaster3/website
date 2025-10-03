@@ -1,0 +1,6 @@
+20.09.2025
+Editor Version: 1.0.0
+
+Final version of the editor is now available.
+
+The option to enable/disable the official theme can be found in the options included in the zip file.
