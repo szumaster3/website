@@ -1,0 +1,10 @@
+04.10.2025
+Editor Version: 1.0.4
+
+Changelog:
+- Unified tabs in the interface editor
+- Updated labels across multiple interface panels to be more user-friendly
+- Improved saving and updating logic for interface components and their properties
+- Fixed save functionality for interface components
+- Displayed text for Text components in the interface tree
+- Refactor interface component editor tree and settings panel
