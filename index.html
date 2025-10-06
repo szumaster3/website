@@ -116,6 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    let messagesContainer = document.getElementById('messagesContainer');
+    if (!messagesContainer) {
+        messagesContainer = document.createElement('div');
+        messagesContainer.id = 'messagesContainer';
+        contentDiv.appendChild(messagesContainer);
+    }
+
     const messagesPerPage = 6;
     const messages = [];
     let currentPage = 1;
@@ -186,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const noMsgBox = document.createElement('div');
             noMsgBox.className = 'message-box';
             noMsgBox.innerHTML = '<p>No messages found.</p>';
-            contentDiv.appendChild(noMsgBox);
+            messagesContainer.appendChild(noMsgBox);
             return;
         }
 
@@ -197,23 +204,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderMessagesPage(page) {
-        const scrollPos = contentDiv.scrollTop;
+        const scrollPos = messagesContainer.scrollTop;
         totalPages = Math.ceil(messages.length / messagesPerPage);
         page = Math.max(1, Math.min(page, totalPages));
         currentPage = page;
 
-        contentDiv.innerHTML = '';
+        messagesContainer.innerHTML = '';
         const start = (page - 1) * messagesPerPage;
         const end = start + messagesPerPage;
         for (let i = start; i < end && i < messages.length; i++) {
-            contentDiv.appendChild(messages[i]);
+            messagesContainer.appendChild(messages[i]);
         }
 
         document.getElementById('prevPage').disabled = currentPage === 1;
         document.getElementById('nextPage').disabled = currentPage === totalPages;
         renderPageNumbers();
 
-        contentDiv.scrollTop = scrollPos;
+        messagesContainer.scrollTop = scrollPos;
     }
 
     function renderPageNumbers() {
@@ -243,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Back to top button
     const backToTop = document.createElement('button');
     backToTop.id = 'backToTop';
     backToTop.title = 'Back to top';
@@ -257,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
     loadMessagesSequentially();
 });
 </script>
