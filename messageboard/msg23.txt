@@ -1,22 +1,9 @@
 06.10.2025
 Editor Version: 1.0.5
 
-<img src="data/screenshots/editor1.png" alt="Editor Screenshot" />
-
 Changelog:
 - Added multi-sprite import functionality via file chooser
 - Enhanced export/dump options to support all sprites in both DAT and PNG formats
 - Added dynamic label displaying current zoom percentage
-- Enforced minimum and maximum zoom limits
-- Synchronized zoom slider with mouse wheel for real-time preview
-- Slider and mouse wheel interactions now update zoom consistently and immediately
-- Reset zoom button now updates slider and label to reflect 100% zoom
-- Updated UI layout for better usability and consistent interface
-- Prevent multiple instances of editors from opening simultaneously
-- Added global editor lock flags to track open editors
-- Each editor checks the flag before opening to avoid duplicates
-- Flags reset automatically when editor window is closed
-- Applies to NPC, Item, Object, Sprite, and Interface editors
-- Ensures consistent behavior and prevents accidental double launches
-- Disabled the interface editor
+- Remove interface editor
 - Add checkbox to reserve current zoom when changing sprites
