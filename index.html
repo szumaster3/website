@@ -111,7 +111,12 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.querySelector('.content');
-    const messagesPerPage = 5;
+    if (!contentDiv) {
+        console.error('Element .content not found');
+        return;
+    }
+
+    const messagesPerPage = 6;
     const messages = [];
     let currentPage = 1;
     let totalPages = 1;
@@ -159,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadMessagesSequentially() {
         let i = 1;
         while (true) {
-            const path = `messageboard/msg${i}.txt`;
+            const path = `/messageboard/msg${i}.txt`;
             try {
                 const response = await fetch(path);
-                if (!response.ok) throw new Error('File not found');
+                if (!response.ok) throw new Error(`File not found: ${path}`);
                 const text = await response.text();
                 const lines = text.split('\n');
                 const dateStr = lines[0] || '';
@@ -171,9 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const messageBox = createMessageBox(body, dateStr, title);
                 messages.push(messageBox);
                 i++;
-            } catch {
+            } catch (err) {
+                console.warn(`Failed to load file: ${path}`, err);
                 break;
             }
+        }
+
+        if (messages.length === 0) {
+            const noMsgBox = document.createElement('div');
+            noMsgBox.className = 'message-box';
+            noMsgBox.innerHTML = '<p>No messages found.</p>';
+            contentDiv.appendChild(noMsgBox);
+            return;
         }
 
         messages.reverse();
@@ -182,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMessagesPage(1);
     }
 
-    async function renderMessagesPage(page) {
+    function renderMessagesPage(page) {
         const scrollPos = contentDiv.scrollTop;
         totalPages = Math.ceil(messages.length / messagesPerPage);
         page = Math.max(1, Math.min(page, totalPages));
@@ -229,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Back to top button
     const backToTop = document.createElement('button');
     backToTop.id = 'backToTop';
     backToTop.title = 'Back to top';
@@ -242,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
     loadMessagesSequentially();
 });
 </script>
