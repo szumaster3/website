@@ -91,7 +91,6 @@
         color: white;
     }
 
-    /* Back to top button */
     #backToTop {
         display: none;
         position: fixed;
@@ -109,12 +108,14 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.25);
         transition: background-color 0.25s, transform 0.25s;
     }
-	.content {
-    transition: opacity 0.25s ease;
-	}
-	.content.fade-out {
-		opacity: 0;
-	}
+
+    .content {
+        transition: opacity 0.25s ease;
+    }
+
+    .content.fade-out {
+        opacity: 0.3;
+    }
 
     #backToTop:hover {
         background-color: #857556;
@@ -198,28 +199,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function renderMessagesPage(page) {
-    const scrollPos = contentDiv.scrollTop;
-    totalPages = Math.ceil(messages.length / messagesPerPage);
-    page = Math.max(1, Math.min(page, totalPages));
-    currentPage = page;
+        const scrollPos = contentDiv.scrollTop;
+        totalPages = Math.ceil(messages.length / messagesPerPage);
+        page = Math.max(1, Math.min(page, totalPages));
+        currentPage = page;
 
-    contentDiv.classList.add('fade-out');
-
-    setTimeout(() => {
         contentDiv.innerHTML = '';
         const start = (page - 1) * messagesPerPage;
         const end = start + messagesPerPage;
         for (let i = start; i < end && i < messages.length; i++) {
             contentDiv.appendChild(messages[i]);
         }
+
         document.getElementById('prevPage').disabled = currentPage === 1;
         document.getElementById('nextPage').disabled = currentPage === totalPages;
         renderPageNumbers();
 
-        contentDiv.classList.remove('fade-out');
+        contentDiv.classList.add('fade-out');
+        setTimeout(() => contentDiv.classList.remove('fade-out'), 250);
+
         contentDiv.scrollTop = scrollPos;
-    }, 250);
-}
+    }
 
     function renderPageNumbers() {
         const container = document.getElementById('pageNumbers');
@@ -285,11 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
                 <li><a href="content/menu/screenshots.html">Screenshots</a></li>
                 <li><a href="content/menu/commands.html">Commands</a></li>
-                <li><a href="#">
-                    <span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span>
-                </a></li>
+                <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
                 <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">530 Revision (Download)</a></li>
-			 <li><a href="content/menu/content.html">How to start</a></li>
+                <li><a href="content/menu/content.html">How to start</a></li>
             </ul>
             <h1>Plugins</h1>
             <ul>
