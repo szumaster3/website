@@ -1,0 +1,9 @@
+08.10.2025
+Editor Version: 1.0.9
+
+Changelogs:
+- Reworked application interface
+- Removed console
+- Fixed Sprite dump: now creates a directory if a sprite has more than 1 frame
+- Export indices menu retains old layout but is fully rewritten under the hood, with significantly faster unpacking
+- Added DisIO library
