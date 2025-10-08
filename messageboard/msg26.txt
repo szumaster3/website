@@ -1,0 +1,8 @@
+08.10.2025
+Editor Version: 1.0.8
+
+Changelogs:
+- Fixed unpacking of master index
+- Added transfer buttons in the file manager
+- Fix double packaging of resources in ShadowJar
+- Rename .jar to rs2-editor.jar

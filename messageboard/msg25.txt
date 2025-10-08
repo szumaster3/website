@@ -5,14 +5,14 @@ Changelogs:
 - Reworked handling of adding multiple PNG files
 - 'Add Frame' now supports selecting and importing multiple frames at once
 - Fixed message dialogs and logs to correctly report the number of added frames
-- Export format now follows the “Export as .DAT” checkbox (removed dialog asking for PNG/DAT)
+- Export format now follows the "Export as .DAT" checkbox (removed dialog asking for PNG/DAT)
 - Added tooltips for all action buttons
 - Improved action logs for sprite operations (add, remove, export)
 - Adjusted right panel layout: checkboxes are now stacked vertically above tabs
 - Improved overall UI consistency and message clarity
 - Fixed cache unpacking output
 - Added GUI for multi-selecting indices before unpacking
-- Added “Select All” / “Unselect All” buttons for quick selection
+- Added "Select All" / "Unselect All" buttons for quick selection
 - Added progress bar showing live unpacking progress per index
 - Improved tooltips and user feedback for all unpack operations
 - Fixed application exit behavior
