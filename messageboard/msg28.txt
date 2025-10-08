@@ -1,0 +1,6 @@
+09.10.2025
+Editor Version: 1.0.9
+
+Changelogs:
+- Removed version from title
+- Add checksum verification for JAR build
