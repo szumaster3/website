@@ -1,0 +1,16 @@
+09.10.2025
+Editor Version: 1.0.10
+
+Changelogs:
+- Added "Generate Reference Table" button for cache
+- Fixed FlatFileExporter – now correctly exports archives
+- Added export log, JSON and CSV manifest for exported archives
+- Progress bar moved to modal dialog
+- Added common compress library
+- Update tooltips for unpacking gui
+- Added FadePanel wrapper to animate new tabs appearing
+- Replace checkboxes with list for unpacker
+- Add warnings about the cache not being loaded where there were none before
+- Remove exit icon from assets
+- Fixed tab close button causing tab label to "jump" on hover by using a fixed border
+- Close button now changes text color to white on hover for better visibility
