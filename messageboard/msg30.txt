@@ -1,0 +1,9 @@
+10.10.2025
+Editor Version: 1.0.11
+
+Changelog:
+- Updated Gradle to 7.1
+- Updated ShadowJar plugin to 7.1
+- Fixed menu buttons unlocking when no cache is loaded
+- Refactored EditorSettings to be stored in-memory instead of JSON
+- Added configurable output location for cache rebuild and export tools
