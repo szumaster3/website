@@ -1,0 +1,8 @@
+11.10.2025
+Editor Version: 1.0.12
+
+Changelog:
+- Add basic panel for interfaces
+- Add help menu
+- Display support information with links for submitting requests or reporting problems
+- Fix small UI details and improve layout
