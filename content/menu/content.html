@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emulation</title>
+    <title>RS2 Emulation</title>
     <link rel="manifest" href="site.webmanifest">
     <script src="../../data/js/header.js"></script>
     <script src="../../data/js/responsive.js"></script>
@@ -14,162 +14,168 @@
     <div class="container">
       <div class="header">
         <div class="title">
-          <h1>RS2-Content</h1>
+          <h1>RS2-Singleplayer</h1>
         </div>
       </div>
-
       <div class="navigation">
         <a href="../../index.html">Home</a>
-        <div class="clearer"><span></span></div>
+        <div class="clearer">
+          <span></span>
+        </div>
       </div>
-
       <div class="main">
         <div class="content">
           <h2>Singleplayer (Offline Mode)</h2>
-          <br>
-
           <p>
-            <strong>Singleplayer package</strong> is a fully self-contained, cross-platform release of the RuneScape experience.
-            It allows you to play, test, and develop completely offline - without connecting to any online servers.
-            Perfect for modding, experimenting, or simply reliving the old-school RuneScape experience privately.
+            <strong>Singleplayer package</strong> is a fully self-contained, cross-platform release of the RuneScape experience based on the 2009Scape fork. It allows you to play, test, and develop entirely offline, without connecting to any online servers. Ideal for modding, experimentation, or simply reliving the old-school RuneScape experience privately.
           </p>
-		  
-          <br>
-
+          <p> This package includes a pre-configured server, client, default world data, and optional plugins to enhance your offline gameplay. </p>
           <h3>Setup</h3>
           <ol>
-            <li>
-              Download the
-              <a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Singleplayer package</a> and extract it anywhere on your computer.  
-            </li>
-            <li>
-              Avoid installing into paths that contain spaces (e.g. <span class="inline-code">C:\Users\My Name\Documents\</span>) -
-              this can cause startup issues. Prefer simple paths like <span class="inline-code">C:\Singleplayer</span> or your Desktop.
-            </li>
-            <li>
-              Inside the extracted folder, you'll find both a <span class="inline-code">server</span> and a <span class="inline-code">client</span> directory.
-            </li>
-            <li>
-              To start the server, run <span class="inline-code">run-server.bat</span> (Windows) or <span class="inline-code">./run-server.sh</span> (Linux/Mac).
-            </li>
-            <li>
-              Once the console displays 'Server is listening on port 43594', launch the client using
-              <span class="inline-code">run-client.bat</span> or <span class="inline-code">./run-client.sh</span>.
-            </li>
-            <li>
-              Log in with any username and password - a new account will be created automatically.
-            </li>
+            <li> Download the <a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip" target="_blank">Singleplayer package</a> and extract it anywhere on your computer. </li>
+            <li> Avoid installing into paths with spaces (e.g., <span class="inline-code">C:\Users\My Name\Documents\</span>). Use simple paths like <span class="inline-code">C:\Singleplayer</span> or Desktop. </li>
+            <li> Inside the extracted folder, you will find <span class="inline-code">server</span> and <span class="inline-code">client</span> directories. </li>
+            <li> Start the server by running <span class="inline-code">run-server.bat</span> (Windows) or <span class="inline-code">./run-server.sh</span> (Linux/Mac). </li>
+            <li> Once the console shows 'Server is listening on port 43594', launch the client using <span class="inline-code">run-client.bat</span> or <span class="inline-code">./run-client.sh</span>. </li>
+            <li> Log in with any username and password – a new account will be created automatically. </li>
           </ol>
-          <br>
           <h3>Configuration</h3>
           <ul>
-            <li>The main configuration file is located at <span class="inline-code">game/worldprops/default.conf</span>.</li>
-            <li>No internet connection is required once setup is complete.</li>
+            <li>Main configuration file: <span class="inline-code">game/worldprops/default.conf</span>. </li>
+            <li>No internet connection is required after setup.</li>
+            <li> Default experience rate ( <span class="inline-code">exp_multiplier</span>) is <strong>1.0x</strong>. To adjust it, open <span class="inline-code">data/players/&lt;your_username&gt;.json</span> and modify <span class="inline-code">exp_multiplier</span>. </li>
+          </ul>
+          <h3>Resources</h3>
+          <p>The <span class="inline-code">resources</span> directory contains: </p>
+          <ul>
             <li>
-              By default, the experience rate (<span class="inline-code">exp stage</span>) is set to <strong>1.0x</strong>.
-              To change this after creating your character, open your save file located in
-              <span class="inline-code">data/players/&lt;your_username&gt;.json</span> and edit the <span class="inline-code">exp_stage</span> value manually.
+              <span class="inline-code">plugins.zip</span> – collection of optional client/server plugins.
             </li>
           </ul>
-          <br>
-          <h3>Resources</h3>
-          <p>The following files are included in the <span class="inline-code">resources</span> directory:</p>
-          <ul>
-            <li><span class="inline-code">plugins.zip</span> – contains all available plugins.</li>
-            <li><span class="inline-code">plugins/</span> – extracted plugins directory.</li>
-            <li><span class="inline-code">commands.txt</span> – list of commands available to plugins.</li>
-            <li><span class="inline-code">legacy-client.zip</span> – the legacy client (plugins do <strong>not</strong> work here).</li>
-          </ul>
-          <br>
-		  <h3>Plugins</h3>
-
+          <h3>Plugins</h3>
           <ol>
-            <li>Unpack the desired plugin from <span class="inline-code">plugins.zip</span> (or use a folder from <span class="inline-code">plugins/</span>).</li>
-            <li>Move the plugin folder (e.g., <span class="inline-code">RememberMyLogin</span>) into <span class="inline-code">game/plugins/</span>.</li>
-            <li>Launch the client — the plugin will be loaded automatically.</li>
+            <li>Extract the desired plugin from <span class="inline-code">plugins.zip</span> or select a folder from <span class="inline-code">plugins/</span>. </li>
+            <li>Move the plugin folder into <span class="inline-code">game/plugins/</span>. </li>
+            <li>Launch the client – the plugin loads automatically.</li>
           </ol>
-          <br>
           <h3>Notes</h3>
           <ul>
+            <li>This release works out of the box; modifying internal configs is at your own risk.</li>
+            <li>If issues occur after changing server files, revert your edits.</li>
+            <li>Avoid installing in Program Files or protected system directories.</li>
+          </ul>
+          <p> With this setup, you can play, develop, and explore RuneScape entirely offline – preserving the 2009 RuneScape experience indefinitely. </p>
+          <h3>Links</h3>
+          <ul>
             <li>
-              This release is designed to work out of the box - any internal configuration changes are at your own risk.
+              <a href="https://gitlab.com/openscape/openscape" target="_blank">Openscape Source</a>
             </li>
             <li>
-              If you modify server configuration files and things start acting strange, please revert your changes.
+              <a href="https://gitlab.com/2009scape/2009scape" target="_blank">Official 2009Scape Project</a>
             </li>
             <li>
-              Program Files or protected system directories are not recommended installation paths.
+              <a href="https://github.com/szumaster3/530-singleplayer" target="_blank">Singleplayer GitHub Repository</a>
             </li>
           </ul>
-
-          <p>
-            With this setup, you can play, develop, and explore RuneScape entirely offline - preserving the
-            2009 RuneScape experience forever.
-          </p>
         </div>
-
         <div class="sidenav">
           <h1>Information</h1>
           <ul>
-            <li><a href="screenshots.html">Screenshots</a></li>
-            <li><a href="commands.html">Commands</a></li>
-                <li><a href="#">
-                    <span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span>
-                </a></li>
-                <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">530 Revision (Download)</a></li>
-							 <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="screenshots.html">Screenshots</a>
+            </li>
+            <li>
+              <a href="commands.html">Commands</a>
+            </li>
+            <li>
+              <a href="#">
+                <span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip" target="_blank">Download Full Package</a>
+            </li>
+            <li>
+              <a href="../../index.html">Home</a>
+            </li>
           </ul>
-
           <h1>Plugins</h1>
           <ul>
-            <li><a href="plugin.html">Support Panel</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
+            <li>
+              <a href="plugin.html">Support Panel</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
           </ul>
-
           <h1>Tools</h1>
           <ul>
-            <li><a href="editor.html">Cache Editor</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
+            <li>
+              <a href="editor.html">Cache Editor</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
           </ul>
-
-          <h1>Open-Source</h1>
+          <h1>Open-Source Projects</h1>
           <ul>
-            <li><a href="https://darkan.org/">2012 Darkan</a></li>
-            <li><a href="https://github.com/GregHib/void">2011 RuneScape Revived</a></li>
-            <li><a href="https://2009scape.org/">2009 Scape</a></li>
-            <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
-            <li><a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
+            <li>
+              <a href="https://darkan.org/" target="_blank">2012 Darkan</a>
+            </li>
+            <li>
+              <a href="https://github.com/GregHib/void" target="_blank">2011 RuneScape Revived</a>
+            </li>
+            <li>
+              <a href="https://2009scape.org/" target="_blank">2009 Scape</a>
+            </li>
+            <li>
+              <a href="https://2004.lostcity.rs/" target="_blank">2004 Lost City</a>
+            </li>
+            <li>
+              <a href="https://archive.openrs2.org/" target="_blank">OpenRS2 Archive</a>
+            </li>
           </ul>
         </div>
-
-        <div class="clearer"><span></span></div>
+        <div class="clearer">
+          <span></span>
+        </div>
       </div>
-
-      <div class="footer">
-        &copy; 2006-2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by
-        <a href="https://vikpe.org/">vikpe</a>.
-      </div>
+      <div class="footer"> &copy; 2006-2025 <a href="https://github.com/szumaster3" target="_blank">szumaster</a>. Template design by <a href="https://vikpe.org/" target="_blank">vikpe</a>. </div>
     </div>
+    <script>
+      async function fetchLatestCommitDate() {
+        try {
+          const response = await fetch("https://api.github.com/repos/szumaster3/530-singleplayer/commits/master");
+          if (!response.ok) throw new Error("Network error");
+          const commitData = await response.json();
+          const date = new Date(commitData.commit.author.date);
+          const formatted = date.toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+          const elem = document.getElementById("commit-status");
+          elem.textContent = `Update: ${formatted}`;
+          elem.style.color = "#5C4033";
+        } catch (e) {
+          console.error("Failed to fetch commit:", e);
+        }
+      }
+      fetchLatestCommitDate();
+    </script>
   </body>
-  <script>
-async function fetchLatestCommitDate() {
-    try {
-        const response = await fetch("https://api.github.com/repos/szumaster3/windows/commits/master");
-        if (!response.ok) throw new Error("Network error");
-        const commitData = await response.json();
-        const date = new Date(commitData.commit.author.date);
-        const formatted = date.toLocaleString("en-US", { year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit" });
-        const elem = document.getElementById("commit-status");
-        elem.textContent = `Update: ${formatted}`;
-        elem.style.color = "#5C4033";
-    } catch (e) {
-        console.error("Failed to fetch commit:", e);
-    }
-}
-fetchLatestCommitDate();
-</script>
 </html>

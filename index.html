@@ -10,101 +10,101 @@
 <link rel="stylesheet" href="data/css/default.css" />
 <link rel="preload" as="image" href="data/img/download_button_hover.png" />
 <style>
-    .info-box {
-        position: relative;
-        background: #fafafa;
-        border: 1px solid #bbb;
-        border-radius: 6px;
-        box-shadow:
-            0 2px 4px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        padding: 18px 24px;
-        margin-bottom: 28px;
-        font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 10px;
-        color: #333;
-    }
+  .info-box {
+    position: relative;
+    background: #fafafa;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    padding: 18px 24px;
+    margin-bottom: 28px;
+    font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10px;
+    color: #333;
+  }
 
-    .info-date {
-        position: absolute;
-        top: 14px;
-        right: 20px;
-        font-size: 0.85em;
-        color: #666;
-        font-style: italic;
-        user-select: none;
-    }
+  .info-date {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+    user-select: none;
+  }
 
-    .message-box {
-        background: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 14px 18px;
-        margin-bottom: 18px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-        position: relative;
-        line-height: 1.4;
-    }
+  .message-box {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    position: relative;
+    line-height: 1.4;
+  }
 
-    .message-box .info-date {
-        position: absolute;
-        top: 12px;
-        right: 18px;
-        font-size: 0.8em;
-        color: #999;
-    }
+  .message-box .info-date {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 0.8em;
+    color: #999;
+  }
 
-    .pagination button {
-        background-color: #CCC3AF;
-        color: #554;
-        border: 1px solid #A98;
-        border-radius: 4px;
-        padding: 6px 14px;
-        margin: 0 6px;
-        font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.1em;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        user-select: none;
-    }
+  .pagination button {
+    background-color: #CCC3AF;
+    color: #554;
+    border: 1px solid #A98;
+    border-radius: 4px;
+    padding: 6px 14px;
+    margin: 0 6px;
+    font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
 
-    .pagination button:hover:not(:disabled) {
-        background-color: #D6CCB9;
-        color: #654;
-    }
+  .pagination button:hover:not(:disabled) {
+    background-color: #D6CCB9;
+    color: #654;
+  }
 
-    .pagination button:disabled {
-        opacity: 0.5;
-        cursor: default;
-    }
+  .pagination button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 
-    .pagination #pageNumbers button.active {
-        background-color: #685B45;
-        color: white;
-    }
+  .pagination #pageNumbers button.active {
+    background-color: #685B45;
+    color: white;
+  }
 
-    #backToTop {
-        display: none;
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 1000;
-        background-color: #685B45;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 44px;
-        height: 44px;
-        font-size: 20px;
-        cursor: pointer;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-        transition: background-color 0.25s, transform 0.25s;
-    }
+  #backToTop {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background-color: #685B45;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+    transition: background-color 0.25s, transform 0.25s;
+  }
 
-    #backToTop:hover {
-        background-color: #857556;
-        transform: scale(1.05);
-    }
+  #backToTop:hover {
+    background-color: #857556;
+    transform: scale(1.05);
+  }
 </style>
 </head>
 <body>
@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createMessageBox(text, dateStr = '', title = '') {
         const box = document.createElement('div');
         box.className = 'message-box';
+        box.style.display = 'none';
 
         if (dateStr) {
             const dateSpan = document.createElement('span');
@@ -182,9 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const body = lines.slice(2).join('\n');
                 const messageBox = createMessageBox(body, dateStr, title);
                 messages.push(messageBox);
+                messagesContainer.appendChild(messageBox);
                 i++;
             } catch (err) {
-                console.warn(`Failed to load file: ${path}`, err);
                 break;
             }
         }
@@ -204,40 +205,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderMessagesPage(page) {
-        const scrollPos = messagesContainer.scrollTop;
         totalPages = Math.ceil(messages.length / messagesPerPage);
         page = Math.max(1, Math.min(page, totalPages));
         currentPage = page;
 
-        messagesContainer.innerHTML = '';
         const start = (page - 1) * messagesPerPage;
         const end = start + messagesPerPage;
-        for (let i = start; i < end && i < messages.length; i++) {
-            messagesContainer.appendChild(messages[i]);
-        }
+
+        messages.forEach((msg, index) => {
+            msg.style.display = index >= start && index < end ? 'block' : 'none';
+        });
 
         document.getElementById('prevPage').disabled = currentPage === 1;
         document.getElementById('nextPage').disabled = currentPage === totalPages;
+
         renderPageNumbers();
-
-        messagesContainer.scrollTop = scrollPos;
     }
 
-    function renderPageNumbers() {
-        const container = document.getElementById('pageNumbers');
-        container.innerHTML = '';
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.textContent = i;
-            btn.classList.toggle('active', i === currentPage);
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                renderMessagesPage(i);
-            });
-            container.appendChild(btn);
-        }
-    }
+	function renderPageNumbers() {
+		const container = document.getElementById('pageNumbers');
+		container.innerHTML = '';
+	
+		let maxButtons = 5;
+		let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+		let endPage = startPage + maxButtons - 1;
+	
+		if (endPage > totalPages) {
+			endPage = totalPages;
+			startPage = Math.max(1, endPage - maxButtons + 1);
+		}
+	
+		for (let i = startPage; i <= endPage; i++) {
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.textContent = i;
+			btn.classList.toggle('active', i === currentPage);
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+				renderMessagesPage(i);
+			});
+			container.appendChild(btn);
+		}
+	}
 
     function setupPagination() {
         document.getElementById('prevPage').addEventListener('click', e => {
@@ -269,61 +278,64 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <div class="container">
-    <div class="header">
-        <div class="title"><h1>RS2-Home</h1></div>
-    </div>
-    <div class="navigation">
-        <a href="index.html">Home</a>
-        <div class="clearer"><span></span></div>
-    </div>
-    <div class="main">
-        <div class="content">
-            <h1>Message Board</h1>
-            <hr />
-            <br>
-        </div>
-        <div class="sidenav">
-            <h1>Information</h1>
-            <ul>
-                <li><a href="content/menu/screenshots.html">Screenshots</a></li>
-                <li><a href="content/menu/commands.html">Commands</a></li>
-                <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
-                <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">530 Revision (Download)</a></li>
-                <li><a href="content/menu/content.html">How to run</a></li>
-            </ul>
-            <h1>Plugins</h1>
-            <ul>
-                <li><a href="content/menu/plugin.html">Support Panel</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-            </ul>
-            <h1>Tools</h1>
-            <ul>
-                <li><a href="content/menu/editor.html">Cache Editor</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-            </ul>
-            <h1>Open Source</h1>
-            <ul>
-                <li><a href="https://darkan.org/">2012 Darkan</a></li>
-                <li><a href="https://github.com/GregHib/void">2011 Void</a></li>
-                <li><a href="https://2009scape.org/">2009 Scape</a></li>
-                <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
-                <li><a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
-            </ul>
-        </div>
-        <div class="clearer"><span></span></div>
+  <div class="header">
+    <div class="title"><h1>RS2-Home</h1></div>
+  </div>
+  <div class="navigation">
+    <a href="index.html">Home</a>
+    <div class="clearer"><span></span></div>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="info-box">
+        This site is dedicated to the <strong>RSPS 530 Openscape</strong> project, an <em>open-source fork of 2009Scape</em>. Explore singleplayer packages, plugins, tools, and development resources.
+      </div>
+      <h1>Message Board</h1>
+      <div id="messagesContainer"></div>
     </div>
 
-    <div class="pagination" style="text-align:center; margin:20px 0; position: relative; left: -100px;">
-        <button id="prevPage" disabled>Prev</button>
-        <span id="pageNumbers"></span>
-        <button id="nextPage">Next</button>
+    <div class="sidenav">
+      <h1>Information</h1>
+      <ul>
+        <li><a href="content/menu/screenshots.html">Screenshots</a></li>
+        <li><a href="content/menu/commands.html">Commands</a></li>
+        <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
+        <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Download Full Package</a></li>
+        <li><a href="content/menu/content.html">Launch Guide</a></li>
+      </ul>
+      <h1>Plugins</h1>
+      <ul>
+        <li><a href="content/menu/plugin.html">Support Panel</a></li>
+        <li><a href="#">Unknown</a></li>
+        <li><a href="#">Unknown</a></li>
+        <li><a href="#">Unknown</a></li>
+      </ul>
+      <h1>Tools</h1>
+      <ul>
+        <li><a href="content/menu/editor.html">Cache Editor</a></li>
+        <li><a href="#">Unknown</a></li>
+        <li><a href="#">Unknown</a></li>
+        <li><a href="#">Unknown</a></li>
+      </ul>
+      <h1>Open Source</h1>
+      <ul>
+        <li><a href="https://darkan.org/">2012 Darkan</a></li>
+        <li><a href="https://github.com/GregHib/void">2011 Void</a></li>
+        <li><a href="https://2009scape.org/">2009 Scape</a></li>
+        <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
+        <li><a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
+      </ul>
     </div>
+    <div class="clearer"><span></span></div>
+  </div>
 
-    <div class="footer">&copy; 2006–2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.</div>
+  <div class="pagination" style="text-align:center; margin:20px 0;">
+    <button id="prevPage" disabled>Prev</button>
+    <span id="pageNumbers"></span>
+    <button id="nextPage">Next</button>
+  </div>
+
+  <div class="footer">&copy; 2006–2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.</div>
 </div>
 
 <script>
@@ -333,9 +345,10 @@ async function fetchLatestCommitDate() {
         if (!response.ok) throw new Error("Network error");
         const commitData = await response.json();
         const date = new Date(commitData.commit.author.date);
-        const formatted = date.toLocaleString("en-US", { year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit" });
+        const formattedDate = date.toLocaleDateString("en-GB");
+        const formattedTime = date.toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"});
         const elem = document.getElementById("commit-status");
-        elem.textContent = `Update: ${formatted}`;
+        elem.textContent = `Update: ${formattedDate}, ${formattedTime}`;
         elem.style.color = "#5C4033";
     } catch (e) {
         console.error("Failed to fetch commit:", e);
