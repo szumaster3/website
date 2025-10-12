@@ -1,0 +1,5 @@
+12.10.2025
+Editor Version: 1.0.13a
+
+Changelog:
+- Fix animation table
