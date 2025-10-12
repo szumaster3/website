@@ -1,0 +1,6 @@
+12.10.2025
+Editor Version: 1.0.13
+
+Changelog:
+- Added animation definition viewer
+- Fixed issue where the edit menu appeared when no cache was loaded
