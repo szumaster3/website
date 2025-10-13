@@ -1,0 +1,15 @@
+13.10.2025
+Editor Version: 1.0.14
+
+Changelog:
+- Fixed clone & select problems for NPCs objects items with VirtualListModel UI now update properly
+- Fixed ObjectDefinition save/load problem and GUI fields mapping
+- Handle full arrays good for modelIds, modelTypes, alternateModelIds, animations, percents
+- Add lastValue to transforms and transformVarbitIds good keep null if empty
+- Fix extras handling always use mutable map no unsafe cast
+- Make sure booleans options recolor palettes parameters save correct
+- Change saveFields() to match ObjectEncoder/Decoder avoid data break
+- Update parse functions in EditorUtils no problem with nullable or smart cast arrays
+- Clean up remove not needed classes
+- Remove configs will bring back with everybody after FX change
+
