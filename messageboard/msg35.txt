@@ -1,0 +1,6 @@
+15.10.2025
+Editor Version: 1.0.15
+
+Changelog:
+- Add ability to copy, save components and interfaces
+
