@@ -1,0 +1,11 @@
+16.10.2025
+Editor Version: 1.0.16
+
+Changelog:
+- Added full cache packer and unpacker (works both ways)
+- Unpacker now exports all found indices and reference tables
+- Saves each file as .dat and also makes a JSON/CSV manifest with CRCs, sizes, flags, and number of archives
+- Packer reads source folders and rebuilds the cache
+- Creates proper folders automatically for packing and unpacking
+- Tool windows now open in the center of the screen
+- Upscaled background 
