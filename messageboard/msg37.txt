@@ -1,0 +1,6 @@
+16.10.2025
+Editor Version: 1.0.16a
+
+Changelog:
+- Fix and improve unpack method
+- Fix generating manifest files with metadata
