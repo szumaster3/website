@@ -1,0 +1,29 @@
+17.10.2025
+Editor Version: 1.0.17
+
+Changelog:
+- Added ALL missing fields to each editor (nearly 80 previously missing definitions now included)
+- Added another batch of tooltips to fields and buttons for improved usability
+- Added separators between definition sections for clarity and visual organization
+- Added support for tab reordering - users can now rearrange open editors (Item, NPC, Object) using mouse drag
+- Added support for unsigned short arrays and palette byte arrays
+- Enhanced array formatting - all arrays are now displayed as [123, 456, 789] and properly sanitized before saving
+- Enhanced exception handling and error reporting with detailed diagnostic messages
+- Fixed horizontal scroll behavior - GUI is now fully responsive and scrolls only vertically
+- Fixed logical issues in serialization order, option handling, and checkbox logic
+- Full field and array consistency across all editors (NPC, Item, Object)
+- Improved Index Transfer and Region Transfer GUIs for consistency and workflow clarity
+- Improved array serialization and deserialization (IntArray, ByteArray, ShortArray)
+- Includes ghost preview and highlight of drop position for smooth feedback
+- Integrated logging system with Save Log and Open Log functionality
+- Optimized cache handling - once the cache is loaded, it remains active after restart without reopening
+- Prevented horizontal overflow and hidden fields beyond viewport boundaries
+- Reduced popup height in File Manager to fit the entire GUI on screen
+- Removed the incomplete Interface Editor (will not return in future builds)
+- Removed unpacking function from File Manager and replaced it with OpenRS2 Archive weblink integration
+- Reworked Model Packer and Model Exporter for consistency and unified interface
+- Reworked Region Transfer and Index Transfer panels - synchronized layouts and behavior
+- Streamlined the editor by removing hundreds of unnecessary lines of code and redundant classes
+- Unified field save order to match cache structure for better compatibility
+- Unified list and field visuals: consistent borders, spacing, and component alignment across the editor
+- Unified tabs across all editors - now each editor includes two tabs: definitions and scripts
