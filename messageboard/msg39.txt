@@ -1,0 +1,5 @@
+19.10.2025
+Editor Version: 1.0.17a
+
+Changelog:
+- Fix freezing and infinite loop during file, archive, and index export
