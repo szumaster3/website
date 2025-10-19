@@ -1,0 +1,5 @@
+19.10.2025
+Editor Version: 1.0.17b
+
+Changelog:
+- Fix cache saving logic to properly write encoded object
