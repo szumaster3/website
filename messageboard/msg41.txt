@@ -1,5 +1,2 @@
 21.10.2025
-Editor Version: 1.0.19+20+21
-
-Changelog:
-- alot
+Editor Version: 1.0.18
