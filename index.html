@@ -204,40 +204,74 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderMessagesPage(page) {
-        const scrollPos = messagesContainer.scrollTop;
-        totalPages = Math.ceil(messages.length / messagesPerPage);
-        page = Math.max(1, Math.min(page, totalPages));
-        currentPage = page;
-
-        messagesContainer.innerHTML = '';
-        const start = (page - 1) * messagesPerPage;
-        const end = start + messagesPerPage;
-        for (let i = start; i < end && i < messages.length; i++) {
-            messagesContainer.appendChild(messages[i]);
-        }
-
-        document.getElementById('prevPage').disabled = currentPage === 1;
-        document.getElementById('nextPage').disabled = currentPage === totalPages;
-        renderPageNumbers();
-
-        messagesContainer.scrollTop = scrollPos;
-    }
+		const scrollPos = messagesContainer.scrollTop;
+		totalPages = Math.ceil(messages.length / messagesPerPage);
+		page = Math.max(1, Math.min(page, totalPages));
+		currentPage = page;
+	
+		messagesContainer.innerHTML = '';
+		const start = (page - 1) * messagesPerPage;
+		const end = start + messagesPerPage;
+		for (let i = start; i < end && i < messages.length; i++) {
+			messagesContainer.appendChild(messages[i]);
+		}
+	
+		document.getElementById('prevPage').disabled = currentPage === 1;
+		document.getElementById('nextPage').disabled = currentPage === totalPages;
+		renderPageNumbers();
+	
+		messagesContainer.scrollTop = scrollPos;
+	}
 
     function renderPageNumbers() {
-        const container = document.getElementById('pageNumbers');
-        container.innerHTML = '';
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.textContent = i;
-            btn.classList.toggle('active', i === currentPage);
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                renderMessagesPage(i);
-            });
-            container.appendChild(btn);
-        }
-    }
+		const container = document.getElementById('pageNumbers');
+		container.innerHTML = '';
+	
+		const maxVisible = 5;
+		let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+		let endPage = startPage + maxVisible - 1;
+	
+		if (endPage > totalPages) {
+			endPage = totalPages;
+			startPage = Math.max(1, endPage - maxVisible + 1);
+		}
+	
+		if (startPage > 1) {
+			const firstBtn = document.createElement('button');
+			firstBtn.type = 'button';
+			firstBtn.textContent = '1';
+			firstBtn.addEventListener('click', () => renderMessagesPage(1));
+			container.appendChild(firstBtn);
+	
+			const dots = document.createElement('span');
+			dots.textContent = ' ... ';
+			container.appendChild(dots);
+		}
+	
+		for (let i = startPage; i <= endPage; i++) {
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.textContent = i;
+			btn.classList.toggle('active', i === currentPage);
+			btn.addEventListener('click', e => {
+				e.preventDefault();
+				renderMessagesPage(i);
+			});
+			container.appendChild(btn);
+		}
+	
+		if (endPage < totalPages) {
+			const dots = document.createElement('span');
+			dots.textContent = ' ... ';
+			container.appendChild(dots);
+	
+			const lastBtn = document.createElement('button');
+			lastBtn.type = 'button';
+			lastBtn.textContent = totalPages;
+			lastBtn.addEventListener('click', () => renderMessagesPage(totalPages));
+			container.appendChild(lastBtn);
+		}
+	}
 
     function setupPagination() {
         document.getElementById('prevPage').addEventListener('click', e => {
