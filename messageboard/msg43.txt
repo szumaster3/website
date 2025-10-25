@@ -1,6 +1,6 @@
 24.10.2025
 Editor Version: 2.0.1
 
-changelogs
+Changelog:
 - Fix IndexTransfer to correctly transfer indices
 - Refactor IndexTransfer and RegionTransfer GUI

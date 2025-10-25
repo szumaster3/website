@@ -1,0 +1,6 @@
+25.10.2025
+Editor Version: 2.0.2
+
+Changelog:
+- Change settings save format from DAT to properties
+- Move settings from old `data/settings.dat` to application directory

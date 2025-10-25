@@ -1,2 +1,5 @@
 21.10.2025
 Editor Version: 1.0.18
+
+Changelog:
+- Optimize package organization and reduce unnecessary files
