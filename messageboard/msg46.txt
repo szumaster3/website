@@ -1,0 +1,8 @@
+25.10.2025
+Oculus v1.0.0-SNAPSHOT
+
+Changelog:
+- Extracted old model viewer from legacy cache and improved UI & search
+- Rewrote base to work with CacheLibrary instead of Store
+- Added live ID-based search filter for models
+- Fixed export functionality and cache loading
