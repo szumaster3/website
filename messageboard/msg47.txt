@@ -4,9 +4,9 @@ Editor Version: 2.0.3
 <img src="data/msg/47.png" alt="Editor update" />
 
 Changelog:
-- Fix export in filemanager for file, archive, and index with proper folder creation
-- Add copy & paste option
-- Add id field to each editor
-- Remove fields that do not related to 530 revision from load/save
-- Update help links to new ones
-- Rename project to 530-Editor
+- Fixed export in FileManager for files, archives, and indexes with proper folder creation
+- Added copy & paste functionality
+- Added ID field to each editor
+- Removed fields unrelated to the 530 revision from load/save
+- Updated help section links for github and gitlab issue page
+- Renamed project to 530-Editor
