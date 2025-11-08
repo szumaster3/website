@@ -64,49 +64,6 @@
             <a href="../../data/gifs/s_gameplay/4.gif" data-lightbox="changelog-gifs" data-title="Gif 4"></a>
             <a href="../../data/gifs/s_gameplay/5.gif" data-lightbox="changelog-gifs" data-title="Gif 5"></a>
           </div>
-
-          <!-- Videos -->
-          <p>Videos</p>
-          <a href="../../data/videos/s_gameplay/0.mp4" data-lightbox="changelog-videos" data-title="Video 0">
-            <img src="../../data/videos/s_gameplay/video0_thumbnail.png" alt="Video 0" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />
-          </a>
-          <div style="display:none;">
-            <a href="../../data/videos/s_gameplay/0.mp4" data-lightbox="changelog-videos" data-title="Video 0"></a>
-            <a href="../../data/videos/s_gameplay/1.mp4" data-lightbox="changelog-videos" data-title="Video 1"></a>
-            <a href="../../data/videos/s_gameplay/2.mp4" data-lightbox="changelog-videos" data-title="Video 2"></a>
-            <a href="../../data/videos/s_gameplay/3.mp4" data-lightbox="changelog-videos" data-title="Video 3"></a>
-            <a href="../../data/videos/s_gameplay/4.mp4" data-lightbox="changelog-videos" data-title="Video 4"></a>
-            <a href="../../data/videos/s_gameplay/5.mp4" data-lightbox="changelog-videos" data-title="Video 5"></a>
-            <a href="../../data/videos/s_gameplay/6.mp4" data-lightbox="changelog-videos" data-title="Video 6"></a>
-            <a href="../../data/videos/s_gameplay/7.mp4" data-lightbox="changelog-videos" data-title="Video 7"></a>
-			<a href="../../data/videos/s_gameplay/8.mp4" data-lightbox="changelog-videos" data-title="Video 8"></a>
-            <a href="../../data/videos/s_gameplay/9.mp4" data-lightbox="changelog-videos" data-title="Video 9"></a>
-            <a href="../../data/videos/s_gameplay/10.mp4" data-lightbox="changelog-videos" data-title="Video 10"></a>
-            <a href="../../data/videos/s_gameplay/11.mp4" data-lightbox="changelog-videos" data-title="Video 11"></a>
-			<a href="../../data/videos/s_gameplay/12.mp4" data-lightbox="changelog-videos" data-title="Video 12"></a>
-            <a href="../../data/videos/s_gameplay/13.mp4" data-lightbox="changelog-videos" data-title="Video 13"></a>
-            <a href="../../data/videos/s_gameplay/14.mp4" data-lightbox="changelog-videos" data-title="Video 14"></a>
-            <a href="../../data/videos/s_gameplay/15.mp4" data-lightbox="changelog-videos" data-title="Video 15"></a>
-			<a href="../../data/videos/s_gameplay/16.mp4" data-lightbox="changelog-videos" data-title="Video 16"></a>
-            <a href="../../data/videos/s_gameplay/17.mp4" data-lightbox="changelog-videos" data-title="Video 17"></a>
-            <a href="../../data/videos/s_gameplay/18.mp4" data-lightbox="changelog-videos" data-title="Video 18"></a>
-            <a href="../../data/videos/s_gameplay/19.mp4" data-lightbox="changelog-videos" data-title="Video 19"></a>
-			<a href="../../data/videos/s_gameplay/20.mp4" data-lightbox="changelog-videos" data-title="Video 20"></a>
-            <a href="../../data/videos/s_gameplay/21.mp4" data-lightbox="changelog-videos" data-title="Video 21"></a>
-            <a href="../../data/videos/s_gameplay/22.mp4" data-lightbox="changelog-videos" data-title="Video 22"></a>
-            <a href="../../data/videos/s_gameplay/23.mp4" data-lightbox="changelog-videos" data-title="Video 23"></a>
-            <a href="../../data/videos/s_gameplay/24.mp4" data-lightbox="changelog-videos" data-title="Video 24"></a>
-            <a href="../../data/videos/s_gameplay/25.mp4" data-lightbox="changelog-videos" data-title="Video 25"></a>
-            <a href="../../data/videos/s_gameplay/26.mp4" data-lightbox="changelog-videos" data-title="Video 26"></a>
-            <a href="../../data/videos/s_gameplay/27.mp4" data-lightbox="changelog-videos" data-title="Video 27"></a>
-			<a href="../../data/videos/s_gameplay/28.mp4" data-lightbox="changelog-videos" data-title="Video 28"></a>
-            <a href="../../data/videos/s_gameplay/29.mp4" data-lightbox="changelog-videos" data-title="Video 29"></a>
-            <a href="../../data/videos/s_gameplay/30.mp4" data-lightbox="changelog-videos" data-title="Video 30"></a>
-            <a href="../../data/videos/s_gameplay/31.mp4" data-lightbox="changelog-videos" data-title="Video 31"></a>
-			<a href="../../data/videos/s_gameplay/32.mp4" data-lightbox="changelog-videos" data-title="Video 32"></a>
-            <a href="../../data/videos/s_gameplay/33.mp4" data-lightbox="changelog-videos" data-title="Video 33"></a>
-            <a href="../../data/videos/s_gameplay/34.mp4" data-lightbox="changelog-videos" data-title="Video 34"></a>
-          </div>
         </div>
 
         <!-- Sidebar -->
@@ -154,13 +111,6 @@
       <script src="../../data/js/lightbox-plus-jquery.js"></script>
       <script src="../../data/js/glightbox.min.js"></script>
       <script>
-        const lightbox = GLightbox({
-          selector: 'glightbox',
-          autoplayVideos: true,
-          touchNavigation: true,
-          loop: true
-        });
-
         async function fetchLatestCommitDate() {
           try {
             const response = await fetch("https://api.github.com/repos/szumaster3/windows/commits/master");

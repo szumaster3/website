@@ -1,0 +1,11 @@
+08.11.2025
+Editor Version: 2.0.3
+
+<img src="data/msg/47.png" alt="Editor update" />
+
+Changelog:
+- Change settings save format from DAT to properties
+- Move settings from old `data/settings.dat` to application directory
+- Remove fields that do not related to 530 revision from load/save
+- Update help links to new ones
+- Rename project to 530-Editor
