@@ -1,0 +1,5 @@
+08.11.2025
+Editor Version: 2.0.3a (Hotfix)
+
+Changelog:
+- Restoring fields for NPCs that should be there
