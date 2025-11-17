@@ -1,8 +1,6 @@
 08.11.2025
 Editor Version: 2.0.3
 
-<img src="data/msg/47.png" alt="Editor update" />
-
 Changelog:
 - Fixed export in FileManager for files, archives, and indexes with proper folder creation
 - Added copy & paste functionality
