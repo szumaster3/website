@@ -1,0 +1,9 @@
+17.11.2025
+Editor Version: 2.0.7
+
+Changelog:
+- Save settings.properties next to the JAR file
+- Allow selecting compression when adding an index or archive to cache
+- Add a gallery with screenshots showing the editor (Tools -> Cache Editor)
+- Add Apache Commons Compress library
+- Update help links
