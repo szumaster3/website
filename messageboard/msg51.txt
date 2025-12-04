@@ -1,5 +1,5 @@
 14.11.2025
-Editor Version: 2.0.6
+Editor Version: v2.0.6
 
 Changelog:
 - Add note template button to item editor

@@ -1,5 +1,5 @@
 13.11.2025
-Editor Version: 2.0.5
+Editor Version: v2.0.5
 
 Changelog:
 - Fix all fields, added missings for item editor

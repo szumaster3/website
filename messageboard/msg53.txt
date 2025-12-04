@@ -1,0 +1,6 @@
+04.12.2025
+Editor Version: v2.0.8+20251204
+
+Changelog:
+- Introduced an option to add an empty archive and file in the File Manager
+- Fixed file selection issues

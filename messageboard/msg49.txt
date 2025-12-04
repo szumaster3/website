@@ -1,5 +1,5 @@
 13.11.2025
-Editor Version: 2.0.4
+Editor Version: v2.0.4
 
 Changelog:
 - Restore all def fields (will only save those that were actually read)

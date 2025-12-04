@@ -1,5 +1,5 @@
 17.11.2025
-Editor Version: 2.0.7
+Editor Version: v2.0.7
 
 Changelog:
 - Save settings.properties next to the JAR file

@@ -1,5 +1,5 @@
 08.11.2025
-Editor Version: 2.0.3
+Editor Version: v2.0.3
 
 Changelog:
 - Fixed export in FileManager for files, archives, and indexes with proper folder creation

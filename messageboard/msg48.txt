@@ -1,5 +1,5 @@
 08.11.2025
-Editor Version: 2.0.3a (Hotfix)
+Editor Version: v2.0.3a (Hotfix)
 
 Changelog:
 - Restored missing fields for NPCs
