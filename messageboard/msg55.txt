@@ -1,0 +1,5 @@
+30.12.2025
+Editor Version: v2.0.9+20251230
+
+Changelog:
+- Optimize File Manager tree search using prebuilt index
