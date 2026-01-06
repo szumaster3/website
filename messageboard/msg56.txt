@@ -1,0 +1,8 @@
+06.01.2026
+Editor Version: 2.0.10+20260106
+
+Changelog:
+- Update iface editor
+- Add scripts tab
+- Add functional buttons
+- Add kotlin-reflect lib
