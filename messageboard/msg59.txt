@@ -1,0 +1,5 @@
+09.01.2026
+Editor Version: 2.0.13+20260109
+
+Changelog:
+- Add interface editor (based on server interface definition)
