@@ -1,314 +1,412 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Emulation - RS3 Blog</title>
-    <link rel="manifest" href="site.webmanifest" />
-    <script src="../../data/js/header.js"></script>
-    <script src="../../data/js/responsive.js"></script>
-    <link href="../../data/css/lightbox.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../data/css/default.css" />
+   <head>
+      <title>Emulation - RS3 Blog</title>
+      <link rel="manifest" href="site.webmanifest" />
+      <script src="../../data/js/header.js"></script>
+      <script src="../../data/js/responsive.js"></script>
+      <link href="../../data/css/lightbox.css" rel="stylesheet" />
+      <link rel="stylesheet" href="../../data/css/default.css" />
 
-    <style>
-      .content h1 { text-align: left; }
+      <style>
+         .content h1 {
+            text-align: left;
+         }
 
-      .journal-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 64px);
-        gap: 8px;
-        margin: 10px 0;
-      }
+         .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 64px);
+            gap: 8px;
+            margin: 10px 0;
+         }
 
-.journal-tile {
-  width: 64px;
-  height: 64px;
-  border: 2px solid #aaa;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #000;
-  position: relative;
-}
-.journal-image {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 4px;
-}
-	  .journal-tile {
-	  position: relative;
-	  }
-	  
-	  .journal-tile::after {
-	  content: attr(data-date);
-	  position: absolute;
-	  bottom: 110%;
-	  left: 50%;
-	  transform: translateX(-50%);
-	  background: #111;
-	  color: #fff;
-	  padding: 4px 8px;
-	  font-size: 11px;
-	  border-radius: 4px;
-	  white-space: nowrap;
-	  opacity: 0;
-	  pointer-events: none;
-	  transition: opacity 0.15s ease;
-	  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-	  }
-	  
-	  .journal-tile:hover::after {
-	  opacity: 1;
-	  }
-      .journal-tile img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
+         .journal-tile {
+            width: 64px;
+            height: 64px;
+            border: 2px solid #aaa;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #000;
+            position: relative;
+         }
+         .journal-image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 4px;
+         }
+         .journal-tile {
+            position: relative;
+         }
 
-      .journal-tile:hover {
-        border-color: #666;
-      }
+         .journal-tile::after {
+            content: attr(data-date);
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #111;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 11px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+         }
 
-.journal-pagination {
-  margin: 6px 0 14px;
-  text-align: center;
-}
-    </style>
-  </head>
+         .journal-tile:hover::after {
+            opacity: 1;
+         }
+         .journal-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+         }
 
-  <body>
-    <div class="container">
-      <div class="header">
-        <div class="title">
-          <h1>RS3-Media</h1>
-        </div>
-      </div>
+         .journal-tile:hover {
+            border-color: #666;
+         }
 
-      <div class="navigation">
-        <a href="../../index.html">Home</a>
-        <div class="clearer"><span></span></div>
-      </div>
+         .journal-pagination {
+            text-align: center;
+            margin: 16px 0;
+            font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana,
+               sans-serif;
+         }
 
-      <div class="main">
-        <div class="content" style="text-align: center;">
-          <h1 style="text-align:left;">Media</h1>
-          <hr><br>
-          <p>Collection of in-game media.<br>(Click to open gallery)</p>
+         .journal-pagination button {
+            background-color: #ccc3af;
+            color: #554;
+            border: 1px solid #a98;
+            border-radius: 4px;
+            padding: 6px 14px;
+            margin: 0 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition:
+               background-color 0.3s ease,
+               color 0.3s ease;
+         }
 
-          <p>Singleplayer journal 2026</p>
+         .journal-pagination button:hover:not(:disabled) {
+            background-color: #d6ccb9;
+            color: #654;
+         }
 
-          <div id="journal" class="journal-grid"></div>
+         .journal-pagination button:disabled {
+            opacity: 0.5;
+            cursor: default;
+         }
 
-          <div class="journal-pagination">
-            <button onclick="prevJournalPage()">←</button>
-            <span id="journal-page"></span>
-            <button onclick="nextJournalPage()">→</button>
-          </div>
+         .journal-pagination button.active {
+            background-color: #685b45;
+            color: white;
+         }
+      </style>
+   </head>
 
-          <div id="journal-lightbox" style="display:none;"></div>
-		  
-          <!-- <p>Screenshots</p>                                                                                                                                  -->
-		  <!--                                                                                                                                                     -->
-          <!-- <a href="../../data/screenshots/s_gameplay/old_0.png" data-lightbox="changelog-gallery">                                                            -->
-          <!--   <img src="../../data/screenshots/s_gameplay/old_1.png" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                    -->
-          <!-- </a>                                                                                                                                                -->
-          <!-- <div style="display:none;">                                                                                                                         -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_2.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_3.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_4.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_5.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_6.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_7.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!--   <a href="../../data/screenshots/s_gameplay/old_8.png" data-lightbox="changelog-gallery"></a>                                                      -->
-          <!-- </div>                                                                                                                                              -->
-		  <!--                                                                                                                                                     -->
-          <!-- <p>Gifs</p>                                                                                                                                         -->
-		  <!--                                                                                                                                                     -->
-          <!-- <a href="../../data/gifs/s_gameplay/0.gif" data-lightbox="changelog-gifs">                                                                          -->
-          <!--   <img src="../../data/gifs/s_gameplay/0.gif" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                               -->
-          <!-- </a>                                                                                                                                                -->
-          <!-- <div style="display:none;">                                                                                                                         -->
-          <!--   <a href="../../data/gifs/s_gameplay/1.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-          <!--   <a href="../../data/gifs/s_gameplay/2.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-          <!--   <a href="../../data/gifs/s_gameplay/3.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-          <!--   <a href="../../data/gifs/s_gameplay/4.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-          <!--   <a href="../../data/gifs/s_gameplay/5.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-          <!-- </div>                                                                                                                                              -->
-        </div>
+   <body>
+      <div class="container">
+         <div class="header">
+            <div class="title">
+               <h1>RS3-Media</h1>
+            </div>
+         </div>
 
-        <!-- Sidebar -->
-        <div class="sidenav">
-          <h1>Information</h1>
-          <ul>
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="commands.html">Commands</a></li>
-            <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
-            <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Download singleplayer</a></li>
-            <li><a href="../../content/menu/content.html">How to play</a></li>
-          </ul>
+         <div class="navigation">
+            <a href="../../index.html">Home</a>
+            <div class="clearer"><span></span></div>
+         </div>
 
-          <h1>Plugins</h1>
-          <ul>
-            <li><a href="../../content/menu/plugin.html">Support panel</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
-          </ul>
+         <div class="main">
+            <div class="content" style="text-align: center">
+               <h1 style="text-align: left">Media</h1>
+               <hr />
+               <br />
+               <p>Collection of in-game media.<br />(Click to open gallery)</p>
+               <p>Singleplayer journal</p>
 
-          <h1>Tools</h1>
-          <ul>
-            <li><a href="../../content/menu/editor.html">Cache editor</a></li>
-            <li><a href="../../content/menu/model_viewer.html">Model viewer</a></li>
-            <li><a href="#">Unknown</a></li>
-            <li><a href="#">Unknown</a></li>
-          </ul>
+               <div id="journal" class="journal-grid"></div>
 
-          <h1>Open-Source Projects</h1>
-          <ul>
-            <li><a href="https://darkan.org/">2012 Darkan</a></li>
-            <li><a href="https://github.com/GregHib/void">2011 Runescape Revived</a></li>
-            <li><a href="https://2009scape.org/">2009 Scape</a></li>
-            <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
-            <li><a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
-          </ul>
-        </div>
+               <div class="journal-pagination">
+                  <button id="prevPage" disabled>Prev</button>
+                  <span id="pageNumbers"></span>
+                  <button id="nextPage">Next</button>
+               </div>
 
-        <div class="clearer"><span></span></div>
-      </div>
+               <div id="journal-lightbox" style="display: none"></div>
 
-      <div class="footer">
-        &copy; 2006-2025 <a href="https://github.com/szumaster3">szumaster</a>.
-        Template design by <a href="https://vikpe.org/">vikpe</a>.
-      </div>
+               <!-- <p>Screenshots</p>                                                                                                                                  -->
+               <!--                                                                                                                                                     -->
+               <!-- <a href="../../data/screenshots/s_gameplay/old_0.png" data-lightbox="changelog-gallery">                                                            -->
+               <!--   <img src="../../data/screenshots/s_gameplay/old_1.png" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                    -->
+               <!-- </a>                                                                                                                                                -->
+               <!-- <div style="display:none;">                                                                                                                         -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_2.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_3.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_4.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_5.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_6.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_7.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!--   <a href="../../data/screenshots/s_gameplay/old_8.png" data-lightbox="changelog-gallery"></a>                                                      -->
+               <!-- </div>                                                                                                                                              -->
+               <!--                                                                                                                                                     -->
+               <!-- <p>Gifs</p>                                                                                                                                         -->
+               <!--                                                                                                                                                     -->
+               <!-- <a href="../../data/gifs/s_gameplay/0.gif" data-lightbox="changelog-gifs">                                                                          -->
+               <!--   <img src="../../data/gifs/s_gameplay/0.gif" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                               -->
+               <!-- </a>                                                                                                                                                -->
+               <!-- <div style="display:none;">                                                                                                                         -->
+               <!--   <a href="../../data/gifs/s_gameplay/1.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
+               <!--   <a href="../../data/gifs/s_gameplay/2.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
+               <!--   <a href="../../data/gifs/s_gameplay/3.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
+               <!--   <a href="../../data/gifs/s_gameplay/4.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
+               <!--   <a href="../../data/gifs/s_gameplay/5.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
+               <!-- </div>                                                                                                                                              -->
+            </div>
 
-      <script src="../../data/js/lightbox-plus-jquery.js"></script>
-      <script src="../../data/js/glightbox.min.js"></script>
+            <!-- Sidebar -->
+            <div class="sidenav">
+               <h1>Information</h1>
+               <ul>
+                  <li><a href="../../index.html">Home</a></li>
+                  <li><a href="commands.html">Commands</a></li>
+                  <li>
+                     <a href="#"
+                        ><span
+                           id="commit-status"
+                           style="color: darkred; font-weight: bold"
+                           >Last commit: 00.00.0000, 00:00</span
+                        ></a
+                     >
+                  </li>
+                  <li>
+                     <a
+                        href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip"
+                        >Download singleplayer</a
+                     >
+                  </li>
+                  <li>
+                     <a href="../../content/menu/content.html">How to play</a>
+                  </li>
+               </ul>
 
-      <script>
-        const journalEntries = [
-          {
-            date: "07.01.2026",
-            thumb: "07.01.2026-1.png",
-            images: [
-              "07.01.2026.png",
-              "07.01.2026-2.png",
-              "07.01.2026-3.png",
-              "07.01.2026-4.png",
-              "07.01.2026-5.png",
-              "07.01.2026-6.png",
-              "07.01.2026-7.png"
-            ]
-          },
-          {
-            date: "08.01.2026",
-            thumb: "08.01.2026.png",
-            images: [
-              "08.01.2026.png",
-			  "08.01.2026-1.png"
-            ]
-          },
-		  {
-            date: "09.01.2026",
-            thumb: "09.01.2026.png",
-            images: [
-              "09.01.2026.png",
-			  "09.01.2026-1.png"
-            ]
-          },
-		  {
-            date: "11.01.2026",
-            thumb: "11.01.2026.png",
-            images: [
-              "11.01.2026.png",
-			  "11.01.2026-1.png"
-            ]
-          }
-        ];
+               <h1>Plugins</h1>
+               <ul>
+                  <li>
+                     <a href="../../content/menu/plugin.html">Support panel</a>
+                  </li>
+                  <li><a href="#">Unknown</a></li>
+                  <li><a href="#">Unknown</a></li>
+                  <li><a href="#">Unknown</a></li>
+               </ul>
 
-        const JOURNAL_PER_PAGE = 14;
-        let journalPage = 0;
+               <h1>Tools</h1>
+               <ul>
+                  <li>
+                     <a href="../../content/menu/editor.html">Cache editor</a>
+                  </li>
+                  <li>
+                     <a href="../../content/menu/model_viewer.html"
+                        >Model viewer</a
+                     >
+                  </li>
+                  <li><a href="#">Unknown</a></li>
+                  <li><a href="#">Unknown</a></li>
+               </ul>
 
-        function renderJournal() {
-          const grid = document.getElementById("journal");
-          const lightbox = document.getElementById("journal-lightbox");
-          const page = document.getElementById("journal-page");
+               <h1>Open-Source Projects</h1>
+               <ul>
+                  <li><a href="https://darkan.org/">2012 Darkan</a></li>
+                  <li>
+                     <a href="https://github.com/GregHib/void"
+                        >2011 Runescape Revived</a
+                     >
+                  </li>
+                  <li><a href="https://2009scape.org/">2009 Scape</a></li>
+                  <li>
+                     <a href="https://2004.lostcity.rs/">2004 Lost City</a>
+                  </li>
+                  <li>
+                     <a href="https://archive.openrs2.org/">OpenRS2 Archive</a>
+                  </li>
+               </ul>
+            </div>
 
-          grid.innerHTML = "";
-          lightbox.innerHTML = "";
+            <div class="clearer"><span></span></div>
+         </div>
 
-          const start = journalPage * JOURNAL_PER_PAGE;
-          const items = journalEntries.slice(start, start + JOURNAL_PER_PAGE);
+         <div class="footer">
+            &copy; 2006-2025
+            <a href="https://github.com/szumaster3">szumaster</a>. Template
+            design by <a href="https://vikpe.org/">vikpe</a>.
+         </div>
 
-          items.forEach((entry, i) => {
-           const tile = document.createElement("div");
-tile.className = "journal-tile";
-tile.setAttribute("data-date", entry.date);
+         <script src="../../data/js/lightbox-plus-jquery.js"></script>
+         <script src="../../data/js/glightbox.min.js"></script>
 
-            const img = document.createElement("img");
-            img.src = "../../data/screenshots/s_singleplayer/" + entry.thumb;
-            img.alt = entry.date;
+         <script>
+            const journalEntries = [
+               {
+                  date: "07.01.2026",
+                  thumb: "07.01.2026-1.png",
+                  images: [
+                     "07.01.2026.png",
+                     "07.01.2026-2.png",
+                     "07.01.2026-3.png",
+                     "07.01.2026-4.png",
+                     "07.01.2026-5.png",
+                     "07.01.2026-6.png",
+                     "07.01.2026-7.png",
+                  ],
+               },
+               {
+                  date: "08.01.2026",
+                  thumb: "08.01.2026.png",
+                  images: ["08.01.2026.png", "08.01.2026-1.png"],
+               },
+               {
+                  date: "09.01.2026",
+                  thumb: "09.01.2026.png",
+                  images: ["09.01.2026.png", "09.01.2026-1.png"],
+               },
+               {
+                  date: "11.01.2026",
+                  thumb: "11.01.2026.png",
+                  images: ["11.01.2026.png", "11.01.2026-1.png"],
+               },
+            ];
 
-            const gid = "journal-" + (start + i);
+            const JOURNAL_PER_PAGE = 14;
+            let journalPage = 0;
 
-            tile.onclick = () => {
-              document.getElementById(gid + "-0").click();
-            };
+            function renderJournalPagination(currentPage, totalPages) {
+               const container = document.getElementById("pageNumbers");
+               container.innerHTML = "";
 
-const wrap = document.createElement("div");
-wrap.className = "journal-image";
+               const maxVisible = 5;
+               let startPage = Math.max(
+                  1,
+                  currentPage - Math.floor(maxVisible / 2),
+               );
+               let endPage = startPage + maxVisible - 1;
 
-wrap.appendChild(img);
-tile.appendChild(wrap);
-            grid.appendChild(tile);
+               if (endPage > totalPages) {
+                  endPage = totalPages;
+                  startPage = Math.max(1, endPage - maxVisible + 1);
+               }
 
-            entry.images.forEach((file, n) => {
-              const a = document.createElement("a");
-              a.href = "../../data/screenshots/s_singleplayer/" + file;
-              a.dataset.lightbox = gid;
-              a.dataset.title = entry.date;
-              a.id = gid + "-" + n;
-              lightbox.appendChild(a);
-            });
-          });
+               for (let i = startPage; i <= endPage; i++) {
+                  const btn = document.createElement("button");
+                  btn.textContent = i;
+                  btn.classList.toggle("active", i === currentPage);
+                  btn.addEventListener("click", () => {
+                     journalPage = i - 1;
+                     renderJournal();
+                  });
+                  container.appendChild(btn);
+               }
 
-          page.textContent =
-            (journalPage + 1) + " / " +
-            Math.ceil(journalEntries.length / JOURNAL_PER_PAGE);
-        }
+               document.getElementById("prevPage").disabled = currentPage === 1;
+               document.getElementById("nextPage").disabled =
+                  currentPage === totalPages;
+            }
 
-        function nextJournalPage() {
-          if ((journalPage + 1) * JOURNAL_PER_PAGE < journalEntries.length) {
-            journalPage++;
+            function renderJournal() {
+               const grid = document.getElementById("journal");
+               grid.innerHTML = "";
+
+               const start = journalPage * JOURNAL_PER_PAGE;
+               const items = journalEntries.slice(
+                  start,
+                  start + JOURNAL_PER_PAGE,
+               );
+
+               items.forEach((entry, i) => {
+                  const tile = document.createElement("div");
+                  tile.className = "journal-tile";
+                  tile.setAttribute("data-date", entry.date);
+
+                  const img = document.createElement("img");
+                  img.src =
+                     "../../data/screenshots/s_singleplayer/" + entry.thumb;
+                  img.alt = entry.date;
+
+                  const wrap = document.createElement("div");
+                  wrap.className = "journal-image";
+                  wrap.appendChild(img);
+                  tile.appendChild(wrap);
+
+                  const gid = "journal-" + (start + i);
+                  tile.onclick = () =>
+                     document.getElementById(gid + "-0").click();
+
+                  grid.appendChild(tile);
+
+                  entry.images.forEach((file, n) => {
+                     const a = document.createElement("a");
+                     a.href = "../../data/screenshots/s_singleplayer/" + file;
+                     a.dataset.lightbox = gid;
+                     a.dataset.title = entry.date;
+                     a.id = gid + "-" + n;
+                     document.getElementById("journal-lightbox").appendChild(a);
+                  });
+               });
+
+               const totalPages = Math.ceil(
+                  journalEntries.length / JOURNAL_PER_PAGE,
+               );
+               renderJournalPagination(journalPage + 1, totalPages);
+            }
+
+            document
+               .getElementById("prevPage")
+               .addEventListener("click", () => {
+                  if (journalPage > 0) {
+                     journalPage--;
+                     renderJournal();
+                  }
+               });
+            document
+               .getElementById("nextPage")
+               .addEventListener("click", () => {
+                  if (
+                     (journalPage + 1) * JOURNAL_PER_PAGE <
+                     journalEntries.length
+                  ) {
+                     journalPage++;
+                     renderJournal();
+                  }
+               });
+
             renderJournal();
-          }
-        }
 
-        function prevJournalPage() {
-          if (journalPage > 0) {
-            journalPage--;
-            renderJournal();
-          }
-        }
-
-        renderJournal();
-
-        async function fetchLatestCommitDate() {
-          try {
-            const response = await fetch("https://api.github.com/repos/szumaster3/windows/commits/master");
-            if (!response.ok) throw new Error("Network error");
-            const commitData = await response.json();
-            const date = new Date(commitData.commit.author.date);
-            const formattedDate = date.toLocaleDateString("en-GB");
-            const formattedTime = date.toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"});
-            const elem = document.getElementById("commit-status");
-            elem.textContent = `Update: ${formattedDate}, ${formattedTime}`;
-            elem.style.color = "#5C4033";
-          } catch (e) {
-            console.error("Failed to fetch commit:", e);
-          }
-        }
-        fetchLatestCommitDate();
-      </script>
-    </div>
-  </body>
+            async function fetchLatestCommitDate() {
+               try {
+                  const response = await fetch(
+                     "https://api.github.com/repos/szumaster3/windows/commits/master",
+                  );
+                  if (!response.ok) throw new Error("Network error");
+                  const commitData = await response.json();
+                  const date = new Date(commitData.commit.author.date);
+                  const formattedDate = date.toLocaleDateString("en-GB");
+                  const formattedTime = date.toLocaleTimeString("en-GB", {
+                     hour: "2-digit",
+                     minute: "2-digit",
+                  });
+                  const elem = document.getElementById("commit-status");
+                  elem.textContent = `Update: ${formattedDate}, ${formattedTime}`;
+                  elem.style.color = "#5C4033";
+               } catch (e) {
+                  console.error("Failed to fetch commit:", e);
+               }
+            }
+            fetchLatestCommitDate();
+         </script>
+      </div>
+   </body>
 </html>
