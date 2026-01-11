@@ -139,34 +139,6 @@
                </div>
 
                <div id="journal-lightbox" style="display: none"></div>
-
-               <!-- <p>Screenshots</p>                                                                                                                                  -->
-               <!--                                                                                                                                                     -->
-               <!-- <a href="../../data/screenshots/s_gameplay/old_0.png" data-lightbox="changelog-gallery">                                                            -->
-               <!--   <img src="../../data/screenshots/s_gameplay/old_1.png" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                    -->
-               <!-- </a>                                                                                                                                                -->
-               <!-- <div style="display:none;">                                                                                                                         -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_2.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_3.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_4.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_5.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_6.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_7.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!--   <a href="../../data/screenshots/s_gameplay/old_8.png" data-lightbox="changelog-gallery"></a>                                                      -->
-               <!-- </div>                                                                                                                                              -->
-               <!--                                                                                                                                                     -->
-               <!-- <p>Gifs</p>                                                                                                                                         -->
-               <!--                                                                                                                                                     -->
-               <!-- <a href="../../data/gifs/s_gameplay/0.gif" data-lightbox="changelog-gifs">                                                                          -->
-               <!--   <img src="../../data/gifs/s_gameplay/0.gif" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />                               -->
-               <!-- </a>                                                                                                                                                -->
-               <!-- <div style="display:none;">                                                                                                                         -->
-               <!--   <a href="../../data/gifs/s_gameplay/1.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-               <!--   <a href="../../data/gifs/s_gameplay/2.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-               <!--   <a href="../../data/gifs/s_gameplay/3.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-               <!--   <a href="../../data/gifs/s_gameplay/4.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-               <!--   <a href="../../data/gifs/s_gameplay/5.gif" data-lightbox="changelog-gifs"></a>                                                                    -->
-               <!-- </div>                                                                                                                                              -->
             </div>
 
             <!-- Sidebar -->
@@ -250,36 +222,15 @@
          <script src="../../data/js/glightbox.min.js"></script>
 
          <script>
-            const journalEntries = [
-               {
-                  date: "07.01.2026",
-                  thumb: "07.01.2026-1.png",
-                  images: [
-                     "07.01.2026.png",
-                     "07.01.2026-2.png",
-                     "07.01.2026-3.png",
-                     "07.01.2026-4.png",
-                     "07.01.2026-5.png",
-                     "07.01.2026-6.png",
-                     "07.01.2026-7.png",
-                  ],
-               },
-               {
-                  date: "08.01.2026",
-                  thumb: "08.01.2026.png",
-                  images: ["08.01.2026.png", "08.01.2026-1.png"],
-               },
-               {
-                  date: "09.01.2026",
-                  thumb: "09.01.2026.png",
-                  images: ["09.01.2026.png", "09.01.2026-1.png"],
-               },
-               {
-                  date: "11.01.2026",
-                  thumb: "11.01.2026.png",
-                  images: ["11.01.2026.png", "11.01.2026-1.png"],
-               },
-            ];
+            let journalEntries = [];
+
+            fetch("../../data/screenshots/journal.json")
+               .then(res => res.json())
+               .then(data => {
+                  journalEntries = data;
+                  renderJournal();
+               })
+               .catch(err => console.error("Failed to load journal.json", err));
 
             const JOURNAL_PER_PAGE = 14;
             let journalPage = 0;
@@ -291,7 +242,7 @@
                const maxVisible = 5;
                let startPage = Math.max(
                   1,
-                  currentPage - Math.floor(maxVisible / 2),
+                  currentPage - Math.floor(maxVisible / 2)
                );
                let endPage = startPage + maxVisible - 1;
 
@@ -312,8 +263,7 @@
                }
 
                document.getElementById("prevPage").disabled = currentPage === 1;
-               document.getElementById("nextPage").disabled =
-                  currentPage === totalPages;
+               document.getElementById("nextPage").disabled = currentPage === totalPages;
             }
 
             function renderJournal() {
@@ -323,7 +273,7 @@
                const start = journalPage * JOURNAL_PER_PAGE;
                const items = journalEntries.slice(
                   start,
-                  start + JOURNAL_PER_PAGE,
+                  start + JOURNAL_PER_PAGE
                );
 
                items.forEach((entry, i) => {
@@ -358,7 +308,7 @@
                });
 
                const totalPages = Math.ceil(
-                  journalEntries.length / JOURNAL_PER_PAGE,
+                  journalEntries.length / JOURNAL_PER_PAGE
                );
                renderJournalPagination(journalPage + 1, totalPages);
             }
@@ -383,12 +333,13 @@
                   }
                });
 
-            renderJournal();
-
+            // -------------------------
+            // LATEST COMMIT
+            // -------------------------
             async function fetchLatestCommitDate() {
                try {
                   const response = await fetch(
-                     "https://api.github.com/repos/szumaster3/windows/commits/master",
+                     "https://api.github.com/repos/szumaster3/windows/commits/master"
                   );
                   if (!response.ok) throw new Error("Network error");
                   const commitData = await response.json();
