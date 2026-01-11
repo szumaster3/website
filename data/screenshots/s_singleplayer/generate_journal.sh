@@ -1,11 +1,12 @@
 #!/bin/bash
 
 SCREENSHOT_DIR="."
-OUTPUT_FILE="journal.json"
+OUTPUT_FILE="$SCREENSHOT_DIR/journal.json"
 
 echo "[" > "$OUTPUT_FILE"
 
-files=($(ls "$SCREENSHOT_DIR"/*.png | sort))
+files=($(ls *.png | sort))
+
 declare -A dates
 
 for f in "${files[@]}"; do
@@ -23,6 +24,7 @@ first=true
 for date in $(printf "%s\n" "${!dates[@]}" | sort); do
     images="${dates[$date]}"
     IFS=',' read -ra arr <<< "$images"
+
     thumb="${arr[0]}"
 
     if [ "$first" = true ]; then

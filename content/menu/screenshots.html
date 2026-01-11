@@ -222,120 +222,100 @@
          <script src="../../data/js/glightbox.min.js"></script>
 
          <script>
-            let journalEntries = [];
+           let journalEntries = [];
 
-            fetch("../../data/screenshots/journal.json")
-               .then(res => res.json())
-               .then(data => {
-                  journalEntries = data;
-                  renderJournal();
-               })
-               .catch(err => console.error("Failed to load journal.json", err));
+fetch("../../data/screenshots/s_singleplayer/journal.json")
+   .then(res => res.json())
+   .then(data => {
+      journalEntries = data;
+      renderJournal();
+   })
+   .catch(err => console.error("Failed to load journal.json", err));
 
-            const JOURNAL_PER_PAGE = 14;
-            let journalPage = 0;
+const JOURNAL_PER_PAGE = 14;
+let journalPage = 0;
 
-            function renderJournalPagination(currentPage, totalPages) {
-               const container = document.getElementById("pageNumbers");
-               container.innerHTML = "";
+function renderJournalPagination(currentPage, totalPages) {
+   const container = document.getElementById("pageNumbers");
+   container.innerHTML = "";
 
-               const maxVisible = 5;
-               let startPage = Math.max(
-                  1,
-                  currentPage - Math.floor(maxVisible / 2)
-               );
-               let endPage = startPage + maxVisible - 1;
+   const maxVisible = 5;
+   let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+   let endPage = startPage + maxVisible - 1;
 
-               if (endPage > totalPages) {
-                  endPage = totalPages;
-                  startPage = Math.max(1, endPage - maxVisible + 1);
-               }
+   if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = Math.max(1, endPage - maxVisible + 1);
+   }
 
-               for (let i = startPage; i <= endPage; i++) {
-                  const btn = document.createElement("button");
-                  btn.textContent = i;
-                  btn.classList.toggle("active", i === currentPage);
-                  btn.addEventListener("click", () => {
-                     journalPage = i - 1;
-                     renderJournal();
-                  });
-                  container.appendChild(btn);
-               }
+   for (let i = startPage; i <= endPage; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      btn.classList.toggle("active", i === currentPage);
+      btn.addEventListener("click", () => {
+         journalPage = i - 1;
+         renderJournal();
+      });
+      container.appendChild(btn);
+   }
 
-               document.getElementById("prevPage").disabled = currentPage === 1;
-               document.getElementById("nextPage").disabled = currentPage === totalPages;
-            }
+   document.getElementById("prevPage").disabled = currentPage === 1;
+   document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
 
-            function renderJournal() {
-               const grid = document.getElementById("journal");
-               grid.innerHTML = "";
+function renderJournal() {
+   const grid = document.getElementById("journal");
+   grid.innerHTML = "";
 
-               const start = journalPage * JOURNAL_PER_PAGE;
-               const items = journalEntries.slice(
-                  start,
-                  start + JOURNAL_PER_PAGE
-               );
+   const start = journalPage * JOURNAL_PER_PAGE;
+   const items = journalEntries.slice(start, start + JOURNAL_PER_PAGE);
 
-               items.forEach((entry, i) => {
-                  const tile = document.createElement("div");
-                  tile.className = "journal-tile";
-                  tile.setAttribute("data-date", entry.date);
+   items.forEach((entry, i) => {
+      const tile = document.createElement("div");
+      tile.className = "journal-tile";
+      tile.setAttribute("data-date", entry.date);
 
-                  const img = document.createElement("img");
-                  img.src =
-                     "../../data/screenshots/s_singleplayer/" + entry.thumb;
-                  img.alt = entry.date;
+      const img = document.createElement("img");
+      img.src = "../../data/screenshots/s_singleplayer/" + entry.thumb;
+      img.alt = entry.date;
 
-                  const wrap = document.createElement("div");
-                  wrap.className = "journal-image";
-                  wrap.appendChild(img);
-                  tile.appendChild(wrap);
+      const wrap = document.createElement("div");
+      wrap.className = "journal-image";
+      wrap.appendChild(img);
+      tile.appendChild(wrap);
 
-                  const gid = "journal-" + (start + i);
-                  tile.onclick = () =>
-                     document.getElementById(gid + "-0").click();
+      const gid = "journal-" + (start + i);
+      tile.onclick = () => document.getElementById(gid + "-0").click();
 
-                  grid.appendChild(tile);
+      grid.appendChild(tile);
 
-                  entry.images.forEach((file, n) => {
-                     const a = document.createElement("a");
-                     a.href = "../../data/screenshots/s_singleplayer/" + file;
-                     a.dataset.lightbox = gid;
-                     a.dataset.title = entry.date;
-                     a.id = gid + "-" + n;
-                     document.getElementById("journal-lightbox").appendChild(a);
-                  });
-               });
+      entry.images.forEach((file, n) => {
+         const a = document.createElement("a");
+         a.href = "../../data/screenshots/s_singleplayer/" + file;
+         a.dataset.lightbox = gid;
+         a.dataset.title = entry.date;
+         a.id = gid + "-" + n;
+         document.getElementById("journal-lightbox").appendChild(a);
+      });
+   });
 
-               const totalPages = Math.ceil(
-                  journalEntries.length / JOURNAL_PER_PAGE
-               );
-               renderJournalPagination(journalPage + 1, totalPages);
-            }
+   const totalPages = Math.ceil(journalEntries.length / JOURNAL_PER_PAGE);
+   renderJournalPagination(journalPage + 1, totalPages);
+}
 
-            document
-               .getElementById("prevPage")
-               .addEventListener("click", () => {
-                  if (journalPage > 0) {
-                     journalPage--;
-                     renderJournal();
-                  }
-               });
-            document
-               .getElementById("nextPage")
-               .addEventListener("click", () => {
-                  if (
-                     (journalPage + 1) * JOURNAL_PER_PAGE <
-                     journalEntries.length
-                  ) {
-                     journalPage++;
-                     renderJournal();
-                  }
-               });
-
-            // -------------------------
-            // LATEST COMMIT
-            // -------------------------
+document.getElementById("prevPage").addEventListener("click", () => {
+   if (journalPage > 0) {
+      journalPage--;
+      renderJournal();
+   }
+});
+document.getElementById("nextPage").addEventListener("click", () => {
+   if ((journalPage + 1) * JOURNAL_PER_PAGE < journalEntries.length) {
+      journalPage++;
+      renderJournal();
+   }
+});
+          
             async function fetchLatestCommitDate() {
                try {
                   const response = await fetch(
