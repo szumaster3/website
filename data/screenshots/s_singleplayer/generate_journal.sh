@@ -1,22 +1,17 @@
 #!/bin/bash
 
 SCREENSHOT_DIR="."
-OUTPUT_FILE="$SCREENSHOT_DIR/journal.json"
+OUTPUT_FILE="journal.json"
 
-# Tworzymy pusty JSON
 echo "[" > "$OUTPUT_FILE"
 
 files=($(ls "$SCREENSHOT_DIR"/*.png | sort))
-
 declare -A dates
 
 for f in "${files[@]}"; do
     base=$(basename "$f")
     date="${base:0:10}"
 
-    if [[ -z "${dates[$date]}" ]]; then
-        dates[$date]=""
-    fi
     if [[ -z "${dates[$date]}" ]]; then
         dates[$date]="$base"
     else
@@ -28,7 +23,6 @@ first=true
 for date in $(printf "%s\n" "${!dates[@]}" | sort); do
     images="${dates[$date]}"
     IFS=',' read -ra arr <<< "$images"
-
     thumb="${arr[0]}"
 
     if [ "$first" = true ]; then
@@ -57,4 +51,4 @@ done
 echo "" >> "$OUTPUT_FILE"
 echo "]" >> "$OUTPUT_FILE"
 
-echo "journal.json created $OUTPUT_FILE"
+echo "journal.json created at $OUTPUT_FILE"
