@@ -1,0 +1,17 @@
+12.01.2026
+Editor Version: 2.0.14+20260112
+
+Changelog:
+- Add change tracking to IfaceDefinition to save only modified components
+- Add support for creating new interfaces (archives) in Interface Editor
+- Treat interface as archive and components as separate files
+- Automatically create root component (file 0) for new interfaces
+- Fix component hierarchy and tree building for newly created interfaces
+- Fix component rendering, selection and tree sync after add/remove
+- Ensure root component (file 0) is always written before other components
+- Fix Negative seek offset caused by writing files before root
+- Stabilize saveCurrent() and prevent cache corruption
+- Improve iface/component toString() for correct tree labels
+- Fix preview initialization and component drawing for new interfaces
+- Verified in-game: opening components works correctly
+- And much more...
