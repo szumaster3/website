@@ -1,0 +1,12 @@
+13.01.2026
+Editor Version: 2.0.15+20260113
+
+Changelog:
+- Added `spritePath` to Main.settings for FontDecoding support (not yet)
+- Implemented hidden checkbox functionality and others
+- Improved component retrieval and tree building logic
+- Added model tab and line defs to text tab
+- Fixed checkboxes not updating individual preview options
+- Refactored IfaceLivePreviewPanel to prevent sprite "jumping" on selection
+- Text rendering: automatically inserts <br> for lines longer than 84 characters
+- Precompute sprites now caches properly and respects flipping, tiling, and resizing
