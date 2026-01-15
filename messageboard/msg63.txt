@@ -3,9 +3,7 @@ Editor Version: 2.0.16+20260115
 
 Changelog:
 - Temporary disabled of the iface editor
-- Add enum editor, codec symmetry, and UI polish
+- Add enum editor with popup-based editing
 - Unified EnumDefinition with full cache compatibility
-- Symmetric EnumDecoder & EnumEncoder
-- Full Swing enum editor with popup-based editing
-- JSON import/export
+- JSON import/export, load configs from templates
 - Improved UX, logging, and safety of edits
