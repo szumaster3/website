@@ -1,0 +1,7 @@
+15.01.2026
+Editor Version: 2.0.17+20260115
+
+Changelog:
+- Write default value last in EnumEncoder for cleaner cache layout
+- Fix showExampleJson to work from JAR
+- Update About section with BSD-3-Clause (GregHib/void) and Kotlin Reflect
