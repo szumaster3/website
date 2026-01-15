@@ -1,0 +1,7 @@
+13.01.2026
+Editor Version: 2.0.15+20260113
+
+Changelog:
+- Refactoring the project structure for clarity and transparency
+- Update gradle 7-1 to 8.5
+- Fix interface editor bugs
