@@ -1,0 +1,5 @@
+17.01.2026
+Editor Version: 2.0.19+20260117
+
+Changelog:
+- Add struct editor
