@@ -24,6 +24,11 @@
         font-size: 10px;
         color: #333;
     }
+	
+	.info-box a:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+	}
 
     .info-date {
         position: absolute;
@@ -105,6 +110,7 @@
         background-color: #857556;
         transform: scale(1.05);
     }
+
 </style>
 </head>
 <body>
@@ -312,6 +318,35 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <div class="main">
     <div class="content">
+		<div class="info-box" style="text-align:center; padding:24px; font-size:13px;">
+		<h2 style="margin-top:0; color:#5C4033;">Download Packages</h2>
+		<div style="display:flex; justify-content:center; gap:16px; margin-top:16px; flex-wrap:wrap;">
+
+			<div style="flex:1; max-width:160px; text-align:center;">
+			<a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip"
+				class="download-btn plug-play">
+				Plug & Play
+			</a>
+			<p style="margin-top:6px; font-size:0.85em; color:#444;">
+				Ready-to-play package including built JARs with full configuration. No additional setup required.
+			</p>
+			</div>
+
+			<div style="flex:1; max-width:160px; text-align:center;">
+			<a href="https://gitlab.com/single-player/server/-/archive/master/server-master.zip?ref_type=heads"
+				class="download-btn development">
+				Development
+			</a>
+			<p style="margin-top:6px; font-size:0.85em; color:#444;">
+				Exported project source, ready to import into IntelliJ IDEA or Eclipse for development and testing.
+			</p>
+			</div>
+		
+		</div>
+		<p style="margin-top:12px; font-size:1.0em; font-style:italic; color:#666;">
+			Choose Plug & Play for immediate gameplay, or Development build for working on the project code.
+		</p>
+		</div>
       <h1>Message Board</h1>
       <div id="messagesContainer"></div>
     </div>
@@ -322,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><a href="content/menu/commands.html">Commands</a></li>
         <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
         <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Download</a></li>
-        <li><a href="content/menu/content.html">Install guide</a></li>
+        <li><a href="content/menu/content.html">Configuration</a></li>
       </ul>
             <h1>Plugins</h1>
             <ul>
@@ -335,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul>
                 <li><a href="content/menu/editor.html">Cache editor</a></li>
                 <li><a href="content/menu/model_viewer.html">Model viewer</a></li>
-                <li><a href="#">Unknown</a></li>
+                <li><a href="https://github.com/szumaster3/Interface-tool">Interface editor</a></li>
                 <li><a href="#">Unknown</a></li>
             </ul>
           <h1>Open-Source Projects</h1>
