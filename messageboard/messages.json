@@ -333,5 +333,10 @@
     "date": "26.02.2026",
     "title": "Editor Version: 2.0.20+20260226",
     "body": "Changelog:\n- Added ESC key shortcut to close editor windows\n- Added Identity Kit editor\n- Added animated loading dialogs\n- Added copy/paste context menu for config editors\n- Added external website confirmation dialogs\n- Added real-time input validation for config editors\n- Added version comparison and update notification utility\n- Added fallback UI on macOS and support for systems that do not support Darklaf\n- Detect and focus already opened editor tabs instead of reopening them\n- Enhanced Region Tools (map and landscape dumping, index generation)\n- Extracted Interface Editor into a standalone application\n- Fixed Struct editor data display and editing logic\n- Fixed cache rebuild progress bar updates\n- Fixed window title inconsistencies\n- Highlighted cache path using type-specific toast notification colors\n- Improved definition editor input fields for cleaner and more consistent data entry\n- Refactored configuration editors to edit the entire entry instead of a single row\n- Refactored menu bar and menu items\n- Improved buttons layout and visual effects\n- Fixed previous restriction that prevented toggling theme\n- Minor fixes and small corrections (small code, UI, or text improvements)"
+  },
+  {
+  "date": "27.02.2026",
+  "title": "Oculus Version: 1.0.1",
+  "body": "Changelog:\n- Reduced app size to 2 MB\n- Centered model rendering\n- Fixed model export\n- Improved renderer stability\n- Save cache path after selection"
   }
 ]
