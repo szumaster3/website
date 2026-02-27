@@ -1,9 +1,0 @@
-15.01.2026
-Editor Version: 2.0.16+20260115
-
-Changelog:
-- Temporary disabled of the iface editor
-- Add enum editor with popup-based editing
-- Unified EnumDefinition with full cache compatibility
-- JSON import/export, load configs from templates
-- Improved UX, logging, and safety of edits

@@ -1,5 +1,0 @@
-06.10.2025
-Editor Version: 1.0.6
-
-Changelog:
-- Enhanced the overall layout

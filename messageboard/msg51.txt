@@ -1,7 +1,0 @@
-14.11.2025
-Editor Version: v2.0.6
-
-Changelog:
-- Add note template button to item editor
-- Fix height of toast notification
-- Small clean-up

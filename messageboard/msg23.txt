@@ -1,9 +1,0 @@
-06.10.2025
-Editor Version: 1.0.5
-
-Changelog:
-- Added multi-sprite import functionality via file chooser
-- Enhanced export/dump options to support all sprites in both DAT and PNG formats
-- Added dynamic label displaying current zoom percentage
-- Remove interface editor
-- Add checkbox to reserve current zoom when changing sprites

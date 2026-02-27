@@ -1,5 +1,0 @@
-05.12.2025
-Editor Version: v2.0.8+20251205
-
-Changelog:
-- Fixed sprite editor

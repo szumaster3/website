@@ -1,5 +1,0 @@
-06.01.2026
-Editor Version: 2.0.11+20260106
-
-Changelog:
-- Removed some things
