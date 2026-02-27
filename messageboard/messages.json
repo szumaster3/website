@@ -338,5 +338,10 @@
   "date": "27.02.2026",
   "title": "Oculus Version: 1.0.1",
   "body": "Changelog:\n- Reduced app size to 2 MB\n- Centered model rendering\n- Fixed model export\n- Improved renderer stability\n- Save cache path after selection"
+  },
+  {
+  "date": "27.02.2026",
+  "title": "Interface Editor Version: 1.0.5",
+  "body": "Changelog:\n- Implement script saving\n- Fix buttons for copying and pasting components"
   }
 ]
