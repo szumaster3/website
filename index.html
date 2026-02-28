@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RS2 blog</title>
-<link rel="manifest" href="site.webmanifest" />
-<script src="data/js/header.js"></script>
-<script src="data/js/responsive.js"></script>
-<link rel="stylesheet" href="data/css/default.css" />
-<link rel="preload" as="image" href="data/img/download_button_hover.png" />
-<style>
-    .info-box {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RS2 blog</title>
+    <link rel="manifest" href="site.webmanifest" />
+    <script src="data/js/header.js"></script>
+    <script src="data/js/responsive.js"></script>
+    <link rel="stylesheet" href="data/css/default.css" />
+    <link rel="preload" as="image" href="data/img/download_button_hover.png" />
+    <style>
+      .info-box {
         position: relative;
         background: #fafafa;
         border: 1px solid #bbb;
         border-radius: 6px;
         box-shadow:
-            0 2px 4px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.6);
+          0 2px 4px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
         padding: 18px 24px;
         margin-bottom: 28px;
         font-family: "Lucida Sans Unicode", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 10px;
         color: #333;
-    }
-	
-	.info-box a:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-	}
+      }
 
-    .info-date {
+      .info-box a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+      }
+
+      .info-date {
         position: absolute;
         top: 14px;
         right: 20px;
@@ -38,9 +38,9 @@
         color: #666;
         font-style: italic;
         user-select: none;
-    }
+      }
 
-    .message-box {
+      .message-box {
         background: #fff;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -49,17 +49,17 @@
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
         position: relative;
         line-height: 1.4;
-    }
+      }
 
-    .message-box .info-date {
+      .message-box .info-date {
         position: absolute;
         top: 12px;
         right: 18px;
         font-size: 0.8em;
         color: #999;
-    }
+      }
 
-    .pagination button {
+      .pagination button {
         background-color: #CCC3AF;
         color: #554;
         border: 1px solid #A98;
@@ -71,24 +71,24 @@
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
         user-select: none;
-    }
+      }
 
-    .pagination button:hover:not(:disabled) {
+      .pagination button:hover:not(:disabled) {
         background-color: #D6CCB9;
         color: #654;
-    }
+      }
 
-    .pagination button:disabled {
+      .pagination button:disabled {
         opacity: 0.5;
         cursor: default;
-    }
+      }
 
-    .pagination #pageNumbers button.active {
+      .pagination #pageNumbers button.active {
         background-color: #685B45;
         color: white;
-    }
+      }
 
-    #backToTop {
+      #backToTop {
         display: none;
         position: fixed;
         bottom: 25px;
@@ -102,262 +102,276 @@
         height: 44px;
         font-size: 20px;
         cursor: pointer;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
         transition: background-color 0.25s, transform 0.25s;
-    }
+      }
 
-    #backToTop:hover {
+      #backToTop:hover {
         background-color: #857556;
         transform: scale(1.05);
-    }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const contentDiv = document.querySelector('.content');
+        if (!contentDiv) return;
+        let messagesContainer = document.getElementById('messagesContainer');
+        if (!messagesContainer) {
+          messagesContainer = document.createElement('div');
+          messagesContainer.id = 'messagesContainer';
+          contentDiv.appendChild(messagesContainer);
+        }
+        const messagesPerPage = 6;
+        const messages = [];
+        let currentPage = 1;
+        let totalPages = 1;
 
-</style>
-</head>
-<body>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const contentDiv = document.querySelector('.content');
-    if (!contentDiv) return;
-
-    let messagesContainer = document.getElementById('messagesContainer');
-    if (!messagesContainer) {
-        messagesContainer = document.createElement('div');
-        messagesContainer.id = 'messagesContainer';
-        contentDiv.appendChild(messagesContainer);
-    }
-
-    const messagesPerPage = 6;
-    const messages = [];
-    let currentPage = 1;
-    let totalPages = 1;
-
-    function createMessageBox(text, dateStr = '', title = '') {
-        const box = document.createElement('div');
-        box.className = 'message-box';
-
-        if (dateStr) {
+        function createMessageBox(text, dateStr = '', title = '') {
+          const box = document.createElement('div');
+          box.className = 'message-box';
+          if (dateStr) {
             const dateSpan = document.createElement('span');
             dateSpan.className = 'info-date';
             dateSpan.textContent = dateStr;
             box.appendChild(dateSpan);
-        }
-
-        if (title) {
+          }
+          if (title) {
             const h3 = document.createElement('h3');
             h3.style.marginTop = '0';
             h3.textContent = title;
             box.appendChild(h3);
-        }
-
-        text.split('\n').forEach(line => {
+          }
+          text.split('\n').forEach(line => {
             line = line.trim();
             if (!line) return;
             if (line.startsWith('-')) {
-                let ul = box.querySelector('ul');
-                if (!ul) {
-                    ul = document.createElement('ul');
-                    box.appendChild(ul);
-                }
-                const li = document.createElement('li');
-                li.innerHTML = line.substring(1).trim();
-                ul.appendChild(li);
+              let ul = box.querySelector('ul');
+              if (!ul) {
+                ul = document.createElement('ul');
+                box.appendChild(ul);
+              }
+              const li = document.createElement('li');
+              li.innerHTML = line.substring(1).trim();
+              ul.appendChild(li);
             } else {
-                const p = document.createElement('p');
-                p.innerHTML = line;
-                box.appendChild(p);
+              const p = document.createElement('p');
+              p.innerHTML = line;
+              box.appendChild(p);
             }
-        });
-
-        return box;
-    }
-
-    async function loadMessages() {
-        try {
+          });
+          return box;
+        }
+        async function loadMessages() {
+          try {
             const response = await fetch('/messageboard/messages.json');
             if (!response.ok) throw new Error();
             const data = await response.json();
-
             if (!Array.isArray(data) || data.length === 0) {
-                const noMsgBox = document.createElement('div');
-                noMsgBox.className = 'message-box';
-                noMsgBox.innerHTML = '<p>No messages found.</p>';
-                messagesContainer.appendChild(noMsgBox);
-                return;
+              const noMsgBox = document.createElement('div');
+              noMsgBox.className = 'message-box';
+              noMsgBox.innerHTML = ' < p > No messages found. < /p>';
+              messagesContainer.appendChild(noMsgBox);
+              return;
             }
-
             data.reverse();
-
             data.forEach(msg => {
-                messages.push(createMessageBox(msg.body, msg.date, msg.title));
+              messages.push(createMessageBox(msg.body, msg.date, msg.title));
             });
-
             totalPages = Math.ceil(messages.length / messagesPerPage);
             setupPagination();
             renderMessagesPage(1);
-
-        } catch (err) {
+          } catch (err) {
             const errorBox = document.createElement('div');
             errorBox.className = 'message-box';
-            errorBox.innerHTML = '<p>Failed to load messages.</p>';
+            errorBox.innerHTML = ' < p > Failed to load messages. < /p>';
             messagesContainer.appendChild(errorBox);
+          }
         }
-    }
 
-    function renderMessagesPage(page) {
-        const scrollPos = messagesContainer.scrollTop;
-        page = Math.max(1, Math.min(page, totalPages));
-        currentPage = page;
-
-        messagesContainer.innerHTML = '';
-        const start = (page - 1) * messagesPerPage;
-        const end = start + messagesPerPage;
-
-        const fragment = document.createDocumentFragment();
-        for (let i = start; i < end && i < messages.length; i++) {
+        function renderMessagesPage(page) {
+          const scrollPos = messagesContainer.scrollTop;
+          page = Math.max(1, Math.min(page, totalPages));
+          currentPage = page;
+          messagesContainer.innerHTML = '';
+          const start = (page - 1) * messagesPerPage;
+          const end = start + messagesPerPage;
+          const fragment = document.createDocumentFragment();
+          for (let i = start; i < end && i < messages.length; i++) {
             fragment.appendChild(messages[i]);
+          }
+          messagesContainer.appendChild(fragment);
+          document.getElementById('prevPage').disabled = currentPage === 1;
+          document.getElementById('nextPage').disabled = currentPage === totalPages;
+          renderPageNumbers();
+          messagesContainer.scrollTop = scrollPos;
         }
-        messagesContainer.appendChild(fragment);
 
-        document.getElementById('prevPage').disabled = currentPage === 1;
-        document.getElementById('nextPage').disabled = currentPage === totalPages;
-        renderPageNumbers();
-        messagesContainer.scrollTop = scrollPos;
-    }
-
-    function renderPageNumbers() {
-        const container = document.getElementById('pageNumbers');
-        container.innerHTML = '';
-
-        const maxVisible = 5;
-        let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
-        let endPage = startPage + maxVisible - 1;
-
-        if (endPage > totalPages) {
+        function renderPageNumbers() {
+          const container = document.getElementById('pageNumbers');
+          container.innerHTML = '';
+          const maxVisible = 5;
+          let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+          let endPage = startPage + maxVisible - 1;
+          if (endPage > totalPages) {
             endPage = totalPages;
             startPage = Math.max(1, endPage - maxVisible + 1);
-        }
-
-        if (startPage > 1) {
+          }
+          if (startPage > 1) {
             const firstBtn = document.createElement('button');
             firstBtn.type = 'button';
             firstBtn.textContent = '1';
             firstBtn.addEventListener('click', () => renderMessagesPage(1));
             container.appendChild(firstBtn);
-
             const dots = document.createElement('span');
             dots.textContent = ' ... ';
             container.appendChild(dots);
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
+          }
+          for (let i = startPage; i <= endPage; i++) {
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.textContent = i;
             btn.classList.toggle('active', i === currentPage);
             btn.addEventListener('click', e => {
-                e.preventDefault();
-                renderMessagesPage(i);
+              e.preventDefault();
+              renderMessagesPage(i);
             });
             container.appendChild(btn);
-        }
-
-        if (endPage < totalPages) {
+          }
+          if (endPage < totalPages) {
             const dots = document.createElement('span');
             dots.textContent = ' ... ';
             container.appendChild(dots);
-
             const lastBtn = document.createElement('button');
             lastBtn.type = 'button';
             lastBtn.textContent = totalPages;
             lastBtn.addEventListener('click', () => renderMessagesPage(totalPages));
             container.appendChild(lastBtn);
+          }
         }
-    }
 
-    function setupPagination() {
-        document.getElementById('prevPage').addEventListener('click', e => {
+        function setupPagination() {
+          document.getElementById('prevPage').addEventListener('click', e => {
             e.preventDefault();
             renderMessagesPage(currentPage - 1);
-        });
-        document.getElementById('nextPage').addEventListener('click', e => {
+          });
+          document.getElementById('nextPage').addEventListener('click', e => {
             e.preventDefault();
             renderMessagesPage(currentPage + 1);
+          });
+        }
+        const backToTop = document.createElement('button');
+        backToTop.id = 'backToTop';
+        backToTop.title = 'Back to top';
+        backToTop.textContent = '↑';
+        document.body.appendChild(backToTop);
+        window.addEventListener('scroll', () => {
+          backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
-    }
-
-    const backToTop = document.createElement('button');
-    backToTop.id = 'backToTop';
-    backToTop.title = 'Back to top';
-    backToTop.textContent = '↑';
-    document.body.appendChild(backToTop);
-
-    window.addEventListener('scroll', () => {
-        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    loadMessages();
-});
-</script>
-
-<div class="container">
-  <div class="header">
-    <div class="title"><h1>RS3-Home</h1></div>
-  </div>
-  <div class="navigation">
-    <a href="index.html">Home</a>
-    <div class="clearer"><span></span></div>
-  </div>
-  <div class="main">
-<div class="content">
-  <h1>Message Board</h1>
-            <hr/><br>
-    <div id="messagesContainer" style="font-size:11px;"></div></div>
-
-    <div class="sidenav">
-      <h1>Information</h1>
-      <ul>
-      <li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-      </ul>
-            <h1>Plugins</h1>
-            <ul>
-                <li><a href="content/menu/plugin.html">Support panel</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">Unknown</a></li>
-            </ul>
-            <h1>Tools</h1>
-            <ul>
-                <li><a href="content/menu/editor.html">Cache editor</a></li>
-                <li><a href="content/menu/model_viewer.html">Model viewer</a></li>
-                <li><a href="content/menu/iface_editor.html">Interface editor</a></li>
-                <li><a href="#">Unknown</a></li>
-            </ul>
-          <h1>Open-Source Projects</h1>
-            <ul>
-                <li><a href="https://darkan.org/">2012 Darkan</a></li>
-                <li><a href="https://github.com/GregHib/void">2011 Runescape Revived</a></li>
-                <li><a href="https://2009scape.org/">2009 Scape</a></li>
-                <li><a href="https://2004.lostcity.rs/">2004 Lost City</a></li>
-                <li><a href="https://archive.openrs2.org/">OpenRS2 Archive</a></li>
-            </ul>
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+        loadMessages();
+      });
+    </script>
+    <div class="container">
+      <div class="header">
+        <div class="title">
+          <h1>RS2-Index</h1>
         </div>
-        <div class="clearer"><span></span></div>
-    </div>
-
-    <div class="pagination" style="text-align:center; margin:20px 0; position: relative; left: -100px;">
+      </div>
+      <div class="navigation">
+        <a href="index.html">Home</a>
+        <div class="clearer">
+          <span></span>
+        </div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <h1>Message Board</h1>
+          <hr />
+          <br>
+          <div id="messagesContainer" style="font-size:11px;"></div>
+        </div>
+        <div class="sidenav">
+          <h1>Information</h1>
+          <ul>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
+          <h1>Plugins</h1>
+          <ul>
+            <li>
+              <a href="content/menu/plugin.html">Support panel</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
+          <h1>Tools</h1>
+          <ul>
+            <li>
+              <a href="content/menu/1.html">Cache editor</a>
+            </li>
+            <li>
+              <a href="content/menu/3.html">Model viewer</a>
+            </li>
+            <li>
+              <a href="content/menu/2.html">Interface editor</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
+          <h1>Open-Source Projects</h1>
+          <ul>
+            <li>
+              <a href="https://darkan.org/">2012 Darkan</a>
+            </li>
+            <li>
+              <a href="https://github.com/GregHib/void">2011 Runescape Revived</a>
+            </li>
+            <li>
+              <a href="https://2009scape.org/">2009 Scape</a>
+            </li>
+            <li>
+              <a href="https://2004.lostcity.rs/">2004 Lost City</a>
+            </li>
+            <li>
+              <a href="https://archive.openrs2.org/">OpenRS2 Archive</a>
+            </li>
+          </ul>
+        </div>
+        <div class="clearer">
+          <span></span>
+        </div>
+      </div>
+      <div class="pagination" style="text-align:center; margin:20px 0; position: relative; left: -100px;">
         <button id="prevPage" disabled>Prev</button>
         <span id="pageNumbers"></span>
         <button id="nextPage">Next</button>
+      </div>
+      <div class="footer">&copy; 2006–2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>. </div>
     </div>
-
-    <div class="footer">&copy; 2006–2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.</div>
-</div>
-</body>
+  </body>
 </html>

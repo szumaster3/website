@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
- <title>RS2 blog</title>
+    <title>RS2 blog</title>
     <link rel="manifest" href="site.webmanifest" />
     <script src="../../data/js/header.js"></script>
     <script src="../../data/js/responsive.js"></script>
@@ -12,7 +12,7 @@
     <div class="container">
       <div class="header">
         <div class="title">
-          <h1>RS3-Tools</h1>
+          <h1>RS2-Tools</h1>
         </div>
       </div>
       <div class="navigation">
@@ -26,16 +26,8 @@
           <h1>Interface editor</h1>
           <hr />
           <br>
-          <p>Screenshots</p>
-          <a href="../../data/screenshots/s_interface_tool/1.png" data-lightbox="changelog-gallery" data-title="Screenshot 0">
-            <img src="../../data/screenshots/s_interface_tool/1.png" alt="Screenshot 0" style="max-width: 100%; border: 4px solid #ccc; border-radius: 8px;" />
-          </a>
-          </a>
-          <br>
           <h3>Overview</h3>
-         <p>An interface editing tool originally created by developer Shnek, refactored for Revision 530. More information can be found at
-    <a href="https://github.com/szumaster3/Interface-tool">https://github.com/szumaster3/Interface-tool</a>.
-</p>
+          <p>An interface editing tool originally created by developer Shnek, refactored for Revision 530. More information can be found at <a href="https://github.com/szumaster3/Interface-tool">https://github.com/szumaster3/Interface-tool</a>. </p>
           <hr>
           <h3>Download</h3>
           <ul>
@@ -43,13 +35,13 @@
               <a href="../../data/upload/dl_iface_editor/IfaceEditor.zip">GitHub</a>
             </li>
           </ul>
-		  <h3>Source</h3>
+          <h3>Source</h3>
           <ul>
             <li>
               <a href="https://github.com/szumaster3/Interface-tool">GitHub</a>
             </li>
           </ul>
-		  <h3>Issues</h3>
+          <h3>Issues</h3>
           <ul>
             <li>
               <a href="https://github.com/szumaster3/Interface-tool/issues">GitHub</a>
@@ -57,13 +49,21 @@
           </ul>
         </div>
         <div class="sidenav">
-                <h1>Information</h1>
-      <ul>
-      <li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-		<li><a href="#">Unknown</a></li>
-      </ul>
+          <h1>Information</h1>
+          <ul>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+            <li>
+              <a href="#">Unknown</a>
+            </li>
+          </ul>
           <h1>Plugins</h1>
           <ul>
             <li>
@@ -80,14 +80,16 @@
             </li>
           </ul>
           <h1>Tools</h1>
-          <ul>            
-		  <li>
-              <a href="editor.html">Cache editor</a>
+          <ul>
+            <li>
+              <a href="1.html">Cache editor</a>
             </li>
             <li>
-              <a href="model_viewer.html">Model viewer</a>
+              <a href="3.html">Model viewer</a>
             </li>
-                               <li><a href="../../index.html">Home</a></li>
+            <li>
+              <a href="2.html">Interface editor</a>
+            </li>
             <li>
               <a href="#">Unknown</a>
             </li>
@@ -119,25 +121,4 @@
     </div>
     <script src="../../data/js/lightbox-plus-jquery.js"></script>
   </body>
-  <script>
-    async function fetchLatestCommitDate() {
-      try {
-        const response = await fetch("https://api.github.com/repos/szumaster3/windows/commits/master");
-        if (!response.ok) throw new Error("Network error");
-        const commitData = await response.json();
-        const date = new Date(commitData.commit.author.date);
-        const formattedDate = date.toLocaleDateString("en-GB");
-        const formattedTime = date.toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit"
-        });
-        const elem = document.getElementById("commit-status");
-        elem.textContent = `Update: ${formattedDate}, ${formattedTime}`;
-        elem.style.color = "#5C4033";
-      } catch (e) {
-        console.error("Failed to fetch commit:", e);
-      }
-    }
-    fetchLatestCommitDate();
-  </script>
 </html>
