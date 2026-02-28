@@ -165,7 +165,7 @@
         }
         async function loadMessages() {
           try {
-            const response = await fetch('/messageboard/messages.json');
+            const response = await fetch('/main/messages.json');
             if (!response.ok) throw new Error();
             const data = await response.json();
             if (!Array.isArray(data) || data.length === 0) {
@@ -316,7 +316,7 @@
           <h1>Plugins</h1>
           <ul>
             <li>
-              <a href="content/menu/plugin.html">Support panel</a>
+              <a href="main/menu/plugin.html">Support panel</a>
             </li>
             <li>
               <a href="#">Unknown</a>
@@ -331,13 +331,13 @@
           <h1>Tools</h1>
           <ul>
             <li>
-              <a href="content/menu/1.html">Cache editor</a>
+              <a href="main/menu/1.html">Cache editor</a>
             </li>
             <li>
-              <a href="content/menu/3.html">Model viewer</a>
+              <a href="main/menu/3.html">Model viewer</a>
             </li>
             <li>
-              <a href="content/menu/2.html">Interface editor</a>
+              <a href="main/menu/2.html">Interface editor</a>
             </li>
             <li>
               <a href="#">Unknown</a>
