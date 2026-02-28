@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Emulation - RS3 Blog</title>
+<title>RS2 blog</title>
 <link rel="manifest" href="site.webmanifest" />
 <script src="data/js/header.js"></script>
 <script src="data/js/responsive.js"></script>
@@ -313,49 +313,17 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <div class="main">
 <div class="content">
-    <div class="info-box" style="text-align:center; padding:14px; font-size:11px; background:#f9f9f9; border-radius:4px; margin-bottom:12px;">
-        Welcome to website dedicated to RSPS.
-    </div>
+  <h1>Message Board</h1>
+            <hr/><br>
+    <div id="messagesContainer" style="font-size:11px;"></div></div>
 
-    <div class="info-box" style="text-align:center; padding:14px; font-size:12px; background:#f9f9f9; border-radius:4px; margin-bottom:12px;">
-        <h2 style="margin-top:0; color:#5C4033; font-size:17px;">Download Packages</h2>
-        <div style="display:flex; justify-content:center; gap:14px; margin-top:6px; flex-wrap:wrap;">
-            <div style="flex:1; max-width:180px; text-align:center;">
-                <a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip"
-                   class="download-btn plug-play" style="font-size:12px; padding:8px 10px; border-radius:4px;">
-                    Plug & Play
-                </a>
-                <p style="margin-top:5px; font-size:0.9em; color:#444;">
-                    Ready-to-play package including built JARs with full configuration. No additional setup required.
-                </p>
-            </div>
-
-            <div style="flex:1; max-width:180px; text-align:center;">
-                <a href="https://gitlab.com/single-player/server/-/archive/master/server-master.zip?ref_type=heads"
-                   class="download-btn development" style="font-size:12px; padding:8px 10px; border-radius:4px;">
-                    Development
-                </a>
-                <p style="margin-top:5px; font-size:0.9em; color:#444;">
-                    Exported project source, ready to import into IntelliJ IDEA or Eclipse for development and testing.
-                </p>
-            </div>
-        </div>
-        <p style="margin-top:10px; font-size:0.9em; font-style:italic; color:#666;">
-            Choose Plug & Play for immediate gameplay, or Development build for working on the project code.
-        </p>
-    </div>
-
-    <h1 style="font-size:15px; margin-top:18px; color:#5C4033;">Message Board</h1>
-    <div id="messagesContainer" style="font-size:11px;"></div>
-</div>
     <div class="sidenav">
       <h1>Information</h1>
       <ul>
-        <li><a href="content/menu/screenshots.html">Media</a></li>
-        <li><a href="content/menu/commands.html">Commands</a></li>
-        <li><a href="#"><span id="commit-status" style="color: darkred; font-weight: bold;">Last commit: 00.00.0000, 00:00</span></a></li>
-        <li><a href="https://github.com/szumaster3/530-singleplayer/archive/refs/heads/master.zip">Download</a></li>
-        <li><a href="content/menu/content.html">Configuration</a></li>
+      <li><a href="#">Unknown</a></li>
+		<li><a href="#">Unknown</a></li>
+		<li><a href="#">Unknown</a></li>
+		<li><a href="#">Unknown</a></li>
       </ul>
             <h1>Plugins</h1>
             <ul>
@@ -391,24 +359,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="footer">&copy; 2006–2025 <a href="https://github.com/szumaster3">szumaster</a>. Template design by <a href="https://vikpe.org/">vikpe</a>.</div>
 </div>
-
-<script>
-async function fetchLatestCommitDate() {
-    try {
-        const response = await fetch("https://api.github.com/repos/szumaster3/windows/commits/master");
-        if (!response.ok) throw new Error("Network error");
-        const commitData = await response.json();
-        const date = new Date(commitData.commit.author.date);
-        const formattedDate = date.toLocaleDateString("en-GB");
-        const formattedTime = date.toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"});
-        const elem = document.getElementById("commit-status");
-        elem.textContent = `Update: ${formattedDate}, ${formattedTime}`;
-        elem.style.color = "#5C4033";
-    } catch (e) {
-        console.error("Failed to fetch commit:", e);
-    }
-}
-fetchLatestCommitDate();
-</script>
 </body>
 </html>
