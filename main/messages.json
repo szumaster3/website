@@ -353,5 +353,10 @@
   "date": "01.03.2026",
   "title": "Interface Editor Version: 1.0.7",
   "body": "Changelog:\n- Add basic resize handling\n- Removed cursors from save/load"
+  },
+  {
+  "date": "02.03.2026",
+  "title": "Editor Version: 2.0.21+20260302",
+  "body": "Changelog:\n- Each definition editor has been given the ability to load and export data in .dat format"
   }
 ]
