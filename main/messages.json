@@ -357,6 +357,6 @@
   {
   "date": "02.03.2026",
   "title": "Editor Version: 2.0.21+20260302",
-  "body": "Changelog:\n- Each definition editor has been given the ability to load and export data in .dat format"
+  "body": "Changelog:\n- Enable loading and exporting data in .dat format for each editor"
   }
 ]
