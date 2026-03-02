@@ -343,5 +343,15 @@
   "date": "27.02.2026",
   "title": "Interface Editor Version: 1.0.5",
   "body": "Changelog:\n- Implement script saving\n- Fix buttons for copying and pasting components"
+  },
+  {
+  "date": "28.02.2026",
+  "title": "Interface Editor Version: 1.0.6",
+  "body": "Changelog:\n- Replaced most buttons with icons\n- Add basic resize handling\n- Removed cursors from save/load"
+  },
+  {
+  "date": "01.03.2026",
+  "title": "Interface Editor Version: 1.0.7",
+  "body": "Changelog:\n- Add basic resize handling\n- Removed cursors from save/load"
   }
 ]
