@@ -113,171 +113,199 @@
     </style>
   </head>
   <body>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const contentDiv = document.querySelector('.content');
-        if (!contentDiv) return;
-        let messagesContainer = document.getElementById('messagesContainer');
-        if (!messagesContainer) {
-          messagesContainer = document.createElement('div');
-          messagesContainer.id = 'messagesContainer';
-          contentDiv.appendChild(messagesContainer);
-        }
-        const messagesPerPage = 6;
-        const messages = [];
-        let currentPage = 1;
-        let totalPages = 1;
+   <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const contentDiv = document.querySelector('.content');
+  if (!contentDiv) return;
 
-        function createMessageBox(text, dateStr = '', title = '') {
-          const box = document.createElement('div');
-          box.className = 'message-box';
-          if (dateStr) {
-            const dateSpan = document.createElement('span');
-            dateSpan.className = 'info-date';
-            dateSpan.textContent = dateStr;
-            box.appendChild(dateSpan);
-          }
-          if (title) {
-            const h3 = document.createElement('h3');
-            h3.style.marginTop = '0';
-            h3.textContent = title;
-            box.appendChild(h3);
-          }
-          text.split('\n').forEach(line => {
-            line = line.trim();
-            if (!line) return;
-            if (line.startsWith('-')) {
-              let ul = box.querySelector('ul');
-              if (!ul) {
-                ul = document.createElement('ul');
-                box.appendChild(ul);
-              }
-              const li = document.createElement('li');
-              li.innerHTML = line.substring(1).trim();
-              ul.appendChild(li);
-            } else {
-              const p = document.createElement('p');
-              p.innerHTML = line;
-              box.appendChild(p);
-            }
-          });
-          return box;
-        }
-        async function loadMessages() {
-          try {
-            const response = await fetch('/main/messages.json');
-            if (!response.ok) throw new Error();
-            const data = await response.json();
-            if (!Array.isArray(data) || data.length === 0) {
-              const noMsgBox = document.createElement('div');
-              noMsgBox.className = 'message-box';
-              noMsgBox.innerHTML = ' < p > No messages found. < /p>';
-              messagesContainer.appendChild(noMsgBox);
-              return;
-            }
-            data.reverse();
-            data.forEach(msg => {
-              messages.push(createMessageBox(msg.body, msg.date, msg.title));
-            });
-            totalPages = Math.ceil(messages.length / messagesPerPage);
-            setupPagination();
-            renderMessagesPage(1);
-          } catch (err) {
-            const errorBox = document.createElement('div');
-            errorBox.className = 'message-box';
-            errorBox.innerHTML = ' < p > Failed to load messages. < /p>';
-            messagesContainer.appendChild(errorBox);
-          }
-        }
+  let messagesContainer = document.getElementById('messagesContainer');
+  if (!messagesContainer) {
+    messagesContainer = document.createElement('div');
+    messagesContainer.id = 'messagesContainer';
+    contentDiv.appendChild(messagesContainer);
+  }
 
-        function renderMessagesPage(page) {
-          const scrollPos = messagesContainer.scrollTop;
-          page = Math.max(1, Math.min(page, totalPages));
-          currentPage = page;
-          messagesContainer.innerHTML = '';
-          const start = (page - 1) * messagesPerPage;
-          const end = start + messagesPerPage;
-          const fragment = document.createDocumentFragment();
-          for (let i = start; i < end && i < messages.length; i++) {
-            fragment.appendChild(messages[i]);
-          }
-          messagesContainer.appendChild(fragment);
-          document.getElementById('prevPage').disabled = currentPage === 1;
-          document.getElementById('nextPage').disabled = currentPage === totalPages;
-          renderPageNumbers();
-          messagesContainer.scrollTop = scrollPos;
-        }
+  const messagesPerPage = 6;
+  const messages = [];
+  let currentPage = 1;
+  let totalPages = 1;
 
-        function renderPageNumbers() {
-          const container = document.getElementById('pageNumbers');
-          container.innerHTML = '';
-          const maxVisible = 5;
-          let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
-          let endPage = startPage + maxVisible - 1;
-          if (endPage > totalPages) {
-            endPage = totalPages;
-            startPage = Math.max(1, endPage - maxVisible + 1);
-          }
-          if (startPage > 1) {
-            const firstBtn = document.createElement('button');
-            firstBtn.type = 'button';
-            firstBtn.textContent = '1';
-            firstBtn.addEventListener('click', () => renderMessagesPage(1));
-            container.appendChild(firstBtn);
-            const dots = document.createElement('span');
-            dots.textContent = ' ... ';
-            container.appendChild(dots);
-          }
-          for (let i = startPage; i <= endPage; i++) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.textContent = i;
-            btn.classList.toggle('active', i === currentPage);
-            btn.addEventListener('click', e => {
-              e.preventDefault();
-              renderMessagesPage(i);
-            });
-            container.appendChild(btn);
-          }
-          if (endPage < totalPages) {
-            const dots = document.createElement('span');
-            dots.textContent = ' ... ';
-            container.appendChild(dots);
-            const lastBtn = document.createElement('button');
-            lastBtn.type = 'button';
-            lastBtn.textContent = totalPages;
-            lastBtn.addEventListener('click', () => renderMessagesPage(totalPages));
-            container.appendChild(lastBtn);
-          }
-        }
+  function createMessageBox(text, dateStr = '', title = '') {
+    const box = document.createElement('div');
+    box.className = 'message-box';
 
-        function setupPagination() {
-          document.getElementById('prevPage').addEventListener('click', e => {
-            e.preventDefault();
-            renderMessagesPage(currentPage - 1);
-          });
-          document.getElementById('nextPage').addEventListener('click', e => {
-            e.preventDefault();
-            renderMessagesPage(currentPage + 1);
-          });
+    if (dateStr) {
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'info-date';
+      dateSpan.textContent = dateStr;
+      box.appendChild(dateSpan);
+    }
+
+    if (title) {
+      const h3 = document.createElement('h3');
+      h3.style.marginTop = '0';
+      h3.textContent = title;
+      box.appendChild(h3);
+    }
+
+    text.split('\n').forEach(line => {
+      line = line.trim();
+      if (!line) return;
+      if (line.startsWith('-')) {
+        let ul = box.querySelector('ul');
+        if (!ul) {
+          ul = document.createElement('ul');
+          box.appendChild(ul);
         }
-        const backToTop = document.createElement('button');
-        backToTop.id = 'backToTop';
-        backToTop.title = 'Back to top';
-        backToTop.textContent = '↑';
-        document.body.appendChild(backToTop);
-        window.addEventListener('scroll', () => {
-          backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-        backToTop.addEventListener('click', () => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
-        loadMessages();
+        const li = document.createElement('li');
+        li.innerHTML = line.substring(1).trim();
+        ul.appendChild(li);
+      } else {
+        const p = document.createElement('p');
+        p.innerHTML = line;
+        box.appendChild(p);
+      }
+    });
+
+    return box;
+  }
+
+  async function loadMessages() {
+    try {
+      const response = await fetch('/main/messages.json');
+      if (!response.ok) throw new Error('Failed to fetch messages');
+
+      const data = await response.json();
+
+      if (!Array.isArray(data) || data.length === 0) {
+        const noMsgBox = document.createElement('div');
+        noMsgBox.className = 'message-box';
+        noMsgBox.innerHTML = '<p>No messages found.</p>';
+        messagesContainer.appendChild(noMsgBox);
+        return;
+      }
+
+      data.forEach(msg => {
+        messages.unshift(createMessageBox(msg.body, msg.date, msg.title));
       });
-    </script>
+
+      totalPages = Math.ceil(messages.length / messagesPerPage);
+      setupPagination();
+      renderMessagesPage(1);
+
+    } catch (err) {
+      const errorBox = document.createElement('div');
+      errorBox.className = 'message-box';
+      errorBox.innerHTML = '<p>Failed to load messages.</p>';
+      messagesContainer.appendChild(errorBox);
+      console.error(err);
+    }
+  }
+
+  function renderMessagesPage(page) {
+    page = Math.max(1, Math.min(page, totalPages));
+    currentPage = page;
+
+    messagesContainer.innerHTML = '';
+    const start = (page - 1) * messagesPerPage;
+    const end = start + messagesPerPage;
+    const fragment = document.createDocumentFragment();
+
+    for (let i = start; i < end && i < messages.length; i++) {
+      fragment.appendChild(messages[i]);
+    }
+
+    messagesContainer.appendChild(fragment);
+    messagesContainer.scrollTop = 0;
+
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = currentPage === totalPages;
+
+    renderPageNumbers();
+  }
+
+  function renderPageNumbers() {
+    const container = document.getElementById('pageNumbers');
+    container.innerHTML = '';
+
+    const maxVisible = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+    let endPage = startPage + maxVisible - 1;
+
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = Math.max(1, endPage - maxVisible + 1);
+    }
+
+    if (startPage > 1) {
+      const firstBtn = document.createElement('button');
+      firstBtn.type = 'button';
+      firstBtn.textContent = '1';
+      firstBtn.addEventListener('click', () => renderMessagesPage(1));
+      container.appendChild(firstBtn);
+
+      const dots = document.createElement('span');
+      dots.textContent = ' ... ';
+      container.appendChild(dots);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = i;
+      btn.classList.toggle('active', i === currentPage);
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        renderMessagesPage(i);
+      });
+      container.appendChild(btn);
+    }
+
+    if (endPage < totalPages) {
+      const dots = document.createElement('span');
+      dots.textContent = ' ... ';
+      container.appendChild(dots);
+
+      const lastBtn = document.createElement('button');
+      lastBtn.type = 'button';
+      lastBtn.textContent = totalPages;
+      lastBtn.addEventListener('click', () => renderMessagesPage(totalPages));
+      container.appendChild(lastBtn);
+    }
+  }
+
+  function setupPagination() {
+    document.getElementById('prevPage').addEventListener('click', e => {
+      e.preventDefault();
+      renderMessagesPage(currentPage - 1);
+    });
+
+    document.getElementById('nextPage').addEventListener('click', e => {
+      e.preventDefault();
+      renderMessagesPage(currentPage + 1);
+    });
+  }
+
+  const backToTop = document.createElement('button');
+  backToTop.id = 'backToTop';
+  backToTop.title = 'Back to top';
+  backToTop.textContent = '↑';
+  document.body.appendChild(backToTop);
+
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  loadMessages();
+});
+</script>
     <div class="container">
       <div class="header">
         <div class="title">
