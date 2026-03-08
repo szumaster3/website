@@ -358,5 +358,10 @@
   "date": "02.03.2026",
   "title": "Editor Version: 2.0.21+20260302",
   "body": "Changelog:\n- Enable loading and exporting data in .dat format for each editor"
-  }
+  },
+  {
+  "date": "08.03.2026",
+  "title": "Interface Editor Version: 1.0.8",
+  "body": "Changelog:\n- Add multi-copy button\n- Improve icons\n- Add import/export from file\n- Update field alignment, layout, size, and font"
+  },
 ]
