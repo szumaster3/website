@@ -368,10 +368,10 @@
     "date": "10.03.2026",
     "title": "Interface Editor Version: 1.0.9",
     "body": "Changelog:\n- Paint models\n- Add sprite search, preview (zoom), help\n- Add model manager\n- Improved the docs, reorganized submenus\n- Add scripts and interface references\n- Improve interface renderer performance and sprite rendering"
-  }
+  },
   {
     "date": "10.03.2026",
     "title": "Interface Editor Version: 1.0.10",
-    "body": "Changelog:\n- Restore sprite tiling"
+    "body": "Changelog:\n- Restore sprite tiling\n- Fix NPE in `MultiCopy` and temporarily disable interface file import"
   }
 ]
