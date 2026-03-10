@@ -363,5 +363,10 @@
     "date": "08.03.2026",
     "title": "Interface Editor Version: 1.0.8",
     "body": "Changelog:\n- Add multi-copy button\n- Improve icons\n- Add import/export from file\n- Update field alignment, layout, size, and font"
+  },
+    {
+    "date": "10.03.2026",
+    "title": "Interface Editor Version: 1.0.9",
+    "body": "Changelog:\n- Paint models\n- Add sprite search, preview (zoom), help\n- Add model manager\n- Improved the docs, reorganized submenus\n- Add scripts and interface references\n- Improve interface renderer performance and sprite rendering"
   }
 ]
