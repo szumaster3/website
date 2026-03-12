@@ -373,5 +373,10 @@
     "date": "10.03.2026",
     "title": "Interface Editor Version: 1.0.10",
     "body": "Changelog:\n- Restore sprite tiling\n- Fix NPE in `MultiCopy` and temporarily disable interface file import"
+  },
+  {
+  "date": "12.03.2026",
+  "title": "Interface Editor Version: 1.0.11",
+  "body": "Changelog:\n- Recalculate `componentHash` after `componentId` changes\n- Prevent overwriting existing components when pasting into a target interface\n- Move copy button next to the paste button\n- Fix incorrect `parentId` remapping for copied components\n- Fix MultiCopy refresh issue where changes were not visible until restarting the application\n- Ensure `startAt` is respected when copying components\n- Ensure frames reflect changes after deletion and update frame counter in `SpriteManager`\n- Fix interface slot saving and settings mask handling\n- Add optional component naming and display in UI"
   }
 ]
