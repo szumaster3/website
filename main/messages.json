@@ -378,5 +378,10 @@
   "date": "12.03.2026",
   "title": "Interface Editor Version: 1.0.11",
   "body": "Changelog:\n- Recalculate `componentHash` after `componentId` changes\n- Prevent overwriting existing components when pasting into a target interface\n- Move copy button next to the paste button\n- Fix incorrect `parentId` remapping for copied components\n- Fix MultiCopy refresh issue where changes were not visible until restarting the application\n- Ensure `startAt` is respected when copying components\n- Ensure frames reflect changes after deletion and update frame counter in `SpriteManager`\n- Fix interface slot saving and settings mask handling\n- Add optional component naming and display in UI"
+  },
+  {
+  "date": "13.03.2026",
+  "title": "Interface Editor Version: 1.0.12",
+  "body": "Changelog:\n- Move component name input to property panel\n- Remove popup dialog used when saving components\n- Allow editing component name directly in the property panel\n- Restore the save method accidentally removed in the previous commit\n- Prevent model components from resizing when selecting them\n- Sprite now appears in the center of the preview\n- RenderPanel now allows dragging components with mouse\n- Implemented Ctrl+Z for undo and Ctrl+Y for redo\n- Added tooltips and keyboard shortcuts to Undo/Redo menu items\n- Add toggle mouse button\n- Add hand cursor when dragging components\n- Add option to create a backup from `JMenuItem`\n- Fix model rotation in model viewer"
   }
 ]
