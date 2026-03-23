@@ -383,5 +383,15 @@
   "date": "13.03.2026",
   "title": "Interface Editor Version: 1.0.12",
   "body": "Changelog:\n- Move component name input to property panel\n- Remove popup dialog used when saving components\n- Allow editing component name directly in the property panel\n- Restore the save method accidentally removed in the previous commit\n- Prevent model components from resizing when selecting them\n- Sprite now appears in the center of the preview\n- RenderPanel now allows dragging components with mouse\n- Implemented Ctrl+Z for undo and Ctrl+Y for redo\n- Added tooltips and keyboard shortcuts to Undo/Redo menu items\n- Add toggle mouse button\n- Add hand cursor when dragging components\n- Add option to create a backup from `JMenuItem`\n- Fix model rotation in model viewer"
+  },
+  {
+  "date": "22.03.2026",
+  "title": "Interface Editor Version: 1.0.13",
+  "body": "Changelog:\n- Removed data files, fix typo\n- Remove popup dialog used when saving components\n- Fix component copy/paste across interfaces, add version checking\n- Implement deep copy using encode/decode\n- Fix componentId and componentHash handling\n- Add support for copying component hierarchy\n- Prevent overwriting components in cache\n- Enable cross-interface paste\n- Add Check for updates functionality with remote version validation\n- Fix remote version validation url\n- Fix single vs multi-frame sprite export properly"
+  },
+  {
+  "date": "23.03.2026",
+  "title": "Interface Editor Version: 1.0.14",
+  "body": "Changelog:\n- Ensure config.properties is created and loaded from JAR directory"
   }
 ]
