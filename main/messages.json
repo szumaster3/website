@@ -393,5 +393,10 @@
   "date": "23.03.2026",
   "title": "Interface Editor Version: 1.0.14",
   "body": "Changelog:\n- Ensure config.properties is created and loaded from JAR directory"
+  },
+  {
+  "date": "27.03.2026",
+  "title": "Oculus Version: 1.0.3",
+  "body": "Changelog:\n- Fix for freezing during model search \n-Save the last cache location \n-Cache selection options\n-Add option to select the folder for exporting models\n-The background has been changed to gray"
   }
 ]
