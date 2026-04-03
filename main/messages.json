@@ -65,9 +65,9 @@
     "body": "Changelog:\n- Correct display unsigned short values\n- Final fix for search freeze"
   },
   {
-    "date": "17.08.2025",
+    "date" : "17.08.2025",
     "title": "Editor Version: 2.1.0",
-    "body": "Changelog:\n- All sprite editor features work"
+    "body" : "Changelog:\n- All sprite editor features work"
   },
   {
     "date": "24.08.2025",
@@ -75,9 +75,9 @@
     "body": "Changelog:\n- Add additional functions and enhance functionality in the file manager"
   },
   {
-    "date": "24.08.2025",
+    "date" : "24.08.2025",
     "title": "Editor Version: 2.1.2",
-    "body": "Changelog:\n- Fix searchfield"
+    "body" : "Changelog:\n- Fix searchfield"
   },
   {
     "date": "24.08.2025",
@@ -115,9 +115,9 @@
     "body": "Changelog:\n- Added multi-sprite import functionality via file chooser\n- Enhanced export/dump options to support all sprites in both DAT and PNG formats\n- Added dynamic label displaying current zoom percentage\n- Remove interface editor\n- Add checkbox to reserve current zoom when changing sprites"
   },
   {
-    "date": "06.10.2025",
+    "date" : "06.10.2025",
     "title": "Editor Version: 1.0.6",
-    "body": "Changelog:\n- Enhanced the overall layout"
+    "body" : "Changelog:\n- Enhanced the overall layout"
   },
   {
     "date": "07.10.2025",
@@ -160,9 +160,9 @@
     "body": "Changelog:\n- Added animation definition viewer\n- Fixed issue where the edit menu appeared when no cache was loaded"
   },
   {
-    "date": "12.10.2025",
+    "date" : "12.10.2025",
     "title": "Editor Version: 1.0.13a",
-    "body": "Changelog:\n- Fix animation table"
+    "body" : "Changelog:\n- Fix animation table"
   },
   {
     "date": "13.10.2025",
@@ -205,9 +205,9 @@
     "body": "Changelog:\n- Optimize package organization and reduce unnecessary files"
   },
   {
-    "date": "21.10.2025",
+    "date" : "21.10.2025",
     "title": "Editor Version: 2.0.0",
-    "body": "Changelog:\n- Various bug fixes and improvements"
+    "body" : "Changelog:\n- Various bug fixes and improvements"
   },
   {
     "date": "24.10.2025",
@@ -235,9 +235,9 @@
     "body": "Changelog:\n- Fixed export in FileManager for files, archives, and indexes with proper folder creation\n- Added copy & paste functionality\n- Added ID field to each editor\n- Removed fields unrelated to the 530 revision from load/save\n- Updated help section links for github and gitlab issue page\n- Renamed project to 530-Editor"
   },
   {
-    "date": "08.11.2025",
+    "date" : "08.11.2025",
     "title": "Editor Version: v2.0.3a (Hotfix)",
-    "body": "Changelog:\n- Restored missing fields for NPCs"
+    "body" : "Changelog:\n- Restored missing fields for NPCs"
   },
   {
     "date": "13.11.2025",
@@ -265,9 +265,9 @@
     "body": "Changelog:\n- Introduced an option to add an empty archive and file in the File Manager\n- Fixed file selection issues"
   },
   {
-    "date": "05.12.2025",
+    "date" : "05.12.2025",
     "title": "Editor Version: v2.0.8+20251205",
-    "body": "Changelog:\n- Fixed sprite editor"
+    "body" : "Changelog:\n- Fixed sprite editor"
   },
   {
     "date": "30.12.2025",
@@ -280,14 +280,14 @@
     "body": "Changelog:\n- Update iface editor\n- Add scripts tab\n- Add functional buttons\n- Add kotlin-reflect lib"
   },
   {
-    "date": "06.01.2026",
+    "date" : "06.01.2026",
     "title": "Editor Version: 2.0.11+20260106",
-    "body": "Changelog:\n- Removed some things"
+    "body" : "Changelog:\n- Removed some things"
   },
   {
-    "date": "08.01.2026",
+    "date" : "08.01.2026",
     "title": "Editor Version: 2.0.12+20260108",
-    "body": "Changelog:\n- Adjusted button placement in the sprite editor"
+    "body" : "Changelog:\n- Adjusted button placement in the sprite editor"
   },
   {
     "date": "09.01.2026",
@@ -325,9 +325,9 @@
     "body": "Changelog:\n- Migrated Gradle build scripts from Groovy to Kotlin DSL\n- Cleaned up classes and performed full code refactor (Reduced JAR size by ~4MB)\n- Created generic modules for editor loading\n- Fixed and improved GUI model export"
   },
   {
-    "date": "17.01.2026",
+    "date" : "17.01.2026",
     "title": "Editor Version: 2.0.19+20260117",
-    "body": "Changelog:\n- Add struct editor"
+    "body" : "Changelog:\n- Add struct editor"
   },
   {
     "date": "26.02.2026",
@@ -375,33 +375,33 @@
     "body": "Changelog:\n- Restore sprite tiling\n- Fix NPE in `MultiCopy` and temporarily disable interface file import"
   },
   {
-  "date": "12.03.2026",
-  "title": "Interface Editor Version: 1.0.11",
-  "body": "Changelog:\n- Recalculate `componentHash` after `componentId` changes\n- Prevent overwriting existing components when pasting into a target interface\n- Move copy button next to the paste button\n- Fix incorrect `parentId` remapping for copied components\n- Fix MultiCopy refresh issue where changes were not visible until restarting the application\n- Ensure `startAt` is respected when copying components\n- Ensure frames reflect changes after deletion and update frame counter in `SpriteManager`\n- Fix interface slot saving and settings mask handling\n- Add optional component naming and display in UI"
+    "date": "12.03.2026",
+    "title": "Interface Editor Version: 1.0.11",
+    "body": "Changelog:\n- Recalculate `componentHash` after `componentId` changes\n- Prevent overwriting existing components when pasting into a target interface\n- Move copy button next to the paste button\n- Fix incorrect `parentId` remapping for copied components\n- Fix MultiCopy refresh issue where changes were not visible until restarting the application\n- Ensure `startAt` is respected when copying components\n- Ensure frames reflect changes after deletion and update frame counter in `SpriteManager`\n- Fix interface slot saving and settings mask handling\n- Add optional component naming and display in UI"
   },
   {
-  "date": "13.03.2026",
-  "title": "Interface Editor Version: 1.0.12",
-  "body": "Changelog:\n- Move component name input to property panel\n- Remove popup dialog used when saving components\n- Allow editing component name directly in the property panel\n- Restore the save method accidentally removed in the previous commit\n- Prevent model components from resizing when selecting them\n- Sprite now appears in the center of the preview\n- RenderPanel now allows dragging components with mouse\n- Implemented Ctrl+Z for undo and Ctrl+Y for redo\n- Added tooltips and keyboard shortcuts to Undo/Redo menu items\n- Add toggle mouse button\n- Add hand cursor when dragging components\n- Add option to create a backup from `JMenuItem`\n- Fix model rotation in model viewer"
+    "date": "13.03.2026",
+    "title": "Interface Editor Version: 1.0.12",
+    "body": "Changelog:\n- Move component name input to property panel\n- Remove popup dialog used when saving components\n- Allow editing component name directly in the property panel\n- Restore the save method accidentally removed in the previous commit\n- Prevent model components from resizing when selecting them\n- Sprite now appears in the center of the preview\n- RenderPanel now allows dragging components with mouse\n- Implemented Ctrl+Z for undo and Ctrl+Y for redo\n- Added tooltips and keyboard shortcuts to Undo/Redo menu items\n- Add toggle mouse button\n- Add hand cursor when dragging components\n- Add option to create a backup from `JMenuItem`\n- Fix model rotation in model viewer"
   },
   {
-  "date": "22.03.2026",
-  "title": "Interface Editor Version: 1.0.13",
-  "body": "Changelog:\n- Removed data files, fix typo\n- Remove popup dialog used when saving components\n- Fix component copy/paste across interfaces, add version checking\n- Implement deep copy using encode/decode\n- Fix componentId and componentHash handling\n- Add support for copying component hierarchy\n- Prevent overwriting components in cache\n- Enable cross-interface paste\n- Add Check for updates functionality with remote version validation\n- Fix remote version validation url\n- Fix single vs multi-frame sprite export properly"
+    "date": "22.03.2026",
+    "title": "Interface Editor Version: 1.0.13",
+    "body": "Changelog:\n- Removed data files, fix typo\n- Remove popup dialog used when saving components\n- Fix component copy/paste across interfaces, add version checking\n- Implement deep copy using encode/decode\n- Fix componentId and componentHash handling\n- Add support for copying component hierarchy\n- Prevent overwriting components in cache\n- Enable cross-interface paste\n- Add Check for updates functionality with remote version validation\n- Fix remote version validation url\n- Fix single vs multi-frame sprite export properly"
   },
   {
-  "date": "23.03.2026",
-  "title": "Interface Editor Version: 1.0.14",
-  "body": "Changelog:\n- Ensure config.properties is created and loaded from JAR directory"
+    "date": "23.03.2026",
+    "title": "Interface Editor Version: 1.0.14",
+    "body": "Changelog:\n- Ensure config.properties is created and loaded from JAR directory"
   },
   {
-  "date": "27.03.2026",
-  "title": "Oculus Version: 1.0.3",
-  "body": "Changelog:\n- Fix for freezing during model search \n-Save the last cache location \n-Cache selection options\n-Add option to select the folder for exporting models\n-The background has been changed to gray"
+    "date": "27.03.2026",
+    "title": "Oculus Version: 1.0.3",
+    "body": "Changelog:\n- Fix for freezing during model search \n-Save the last cache location \n-Cache selection options\n-Add option to select the folder for exporting models\n-The background has been changed to gray"
   },
   {
-  "date": "03.04.2026",
-  "title": "Interface Editor Version: 1.0.15",
-  "body": "Changelog:\n- Fixed component hit testing and layer selection priority\n- Fixed hit-test logic to prioritize child components over parent layers\n- Prevented layer components from being selectable\n- Improved recursive hit detection consistency\n- Improved undo/redo support for macOS (cross-platform key handling)\n- Added gradle files to .gitignore\n- Added cross-platform CI build pipeline"
+    "date": "03.04.2026",
+    "title": "Interface Editor Version: 1.0.15",
+    "body": "Changelog:\n- Fixed component hit testing and layer selection priority\n- Fixed hit-test logic to prioritize child components over parent layers\n- Prevented layer components from being selectable\n- Improved recursive hit detection consistency\n- Improved undo/redo support for macOS (cross-platform key handling)\n- Added gradle files to .gitignore\n- Added cross-platform CI build pipeline"
   }
 ]
