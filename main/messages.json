@@ -398,5 +398,10 @@
   "date": "27.03.2026",
   "title": "Oculus Version: 1.0.3",
   "body": "Changelog:\n- Fix for freezing during model search \n-Save the last cache location \n-Cache selection options\n-Add option to select the folder for exporting models\n-The background has been changed to gray"
+  },
+  {
+  "date": "03.04.2026",
+  "title": "Interface Editor Version: 1.0.15",
+  "body": "Changelog:\n- Fixed component hit testing and layer selection priority\n- Fixed hit-test logic to prioritize child components over parent layers\n- Prevented layer components from being selectable\n- Improved recursive hit detection consistency\n- Improved undo/redo support for macOS (cross-platform key handling)\n- Added gradle files to .gitignore\n- Added cross-platform CI build pipeline"
   }
 ]
