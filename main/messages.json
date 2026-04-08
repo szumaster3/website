@@ -403,5 +403,10 @@
     "date": "03.04.2026",
     "title": "Interface Editor Version: 1.0.15",
     "body": "Changelog:\n- Fixed component hit testing and layer selection priority\n- Fixed hit-test logic to prioritize child components over parent layers\n- Prevented layer components from being selectable\n- Improved recursive hit detection consistency\n- Improved undo/redo support for macOS (cross-platform key handling)\n- Added gradle files to .gitignore\n- Added cross-platform CI build pipeline"
+  },
+  {
+    "date": "03.04.2026",
+    "title": "Interface Editor Version: 1.0.16",
+    "body": "Changelog:\n- Fix double click bug in sprite editor\n- Fix model positioning\n- Update model manager\n- Improve undo/redo system with full component state snapshot"
   }
 ]
