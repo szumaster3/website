@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadMessages() {
     try {
-      const response = await fetch('/main/messages.json');
+      const response = await fetch('./main/messages.json');
       if (!response.ok) throw new Error('Failed to fetch messages');
 
       const data = await response.json();
